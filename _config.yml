@@ -4,5 +4,18 @@ theme: just-the-docs
 
 url: https://nottaroff.github.io
 
-aux_links:
-  Template Repository: https://github.com/just-the-docs/just-the-docs-template
+#Color theme
+color_scheme: dark
+
+#Web Logo
+logo: "/media/logo.png"
+
+callouts:
+  warning:
+    title: Warning
+    color: red
+  
+  important:
+    title: Work in progress
+    color: blue
+    opacity: 0.3
