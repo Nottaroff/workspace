@@ -19,3 +19,8 @@ callouts:
     title: Work in progress
     color: blue
     opacity: 0.3
+
+  work:
+    title: Work in progress
+    color: yellow
+    opacity: 0.3
