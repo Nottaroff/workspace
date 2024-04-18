@@ -24,3 +24,11 @@ callouts:
     title: Work in progress
     color: yellow
     opacity: 0.3
+
+  detail:
+    color: blue
+    opacity: 0.2
+
+  importance:
+    color: red
+    opacity: 0.2

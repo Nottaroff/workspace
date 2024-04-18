@@ -20,47 +20,51 @@ El principal objetivo es aprender sobre un tema. Dedicando a realizar el reto m�
 
 ## Índice del reto
 
-**1. Introduction to threat hunting (Foundations, Types, Models)**
-- 1.1 Overview.
-- 1.2 Types and models.
-- 1.3 Importance and evolution of threat hunting.
+[**1. Introducción al Threat Hunting**](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion) 🎬
 
-**2. Collection and analysis of threat information**
-- 2.1 Sources of threat intelligence.
-- 2.2 Techniques for collecting information.
-- 2.3 Analytical methods.
+- [1.1 Definición](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#11-introducción) 
+- [1.2 Tipos](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#12-tipos-de-threat-hunting)
+- [1.3 Metodologías](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#13-metodologias)
+- [1.4 Importancia del Threat Hunting](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#14-importancia-del-threat-hunting)
+- [1.5 Etapas](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#14-etapas)
+- [1.6 Glosario](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#15-glosario)
 
-**3. Techniques of Threat Hunting.**
+**2. Recopilación y análisis de información sobre amenazas**
+- 2.1 Fuentes de inteligencia de amenazas.
+- 2.2 Técnicas para recopilar información.
+- 2.3 Métodos analíticos.
 
-**4. Tools.**
+**3. Técnicas de Caza de Amenazas.**
 
-**5. Threat hunting in network environments.**
+**4. Herramientas.**
 
-- 5.1 Network traffic analysis techniques.
-- 5.2 Log Analysis for network security.
-- 5.3 Hunting for indicators of compromise.
+**5. Caza de amenazas en entornos de red.**
 
-**6. Threat Hunting in endpoint environments.**
+- 5.1 Técnicas de análisis de tráfico de red.
+- 5.2 Análisis de registros para seguridad de red.
+- 5.3 Búsqueda de indicadores de compromiso.
 
-- 6.1 Malware Hiding Techniques
-- 6.2 Uncovering Internal Reconnaissance
-- 6.3 Uncovering Lateral Movement
-- 6.4 Data Acquisition Techniques
+**6. Caza de amenazas en entornos de endpoints.**
 
-**7. Threat hunting for insider threats**
+- 6.1 Técnicas de ocultación de malware.
+- 6.2 Descubriendo la Reconocimiento Interno.
+- 6.3 Descubriendo el Movimiento Lateral.
+- 6.4 Técnicas de adquisición de datos.
 
-- 7.1 Indicators of insider threats.
-- 7.2 Monitoring user activity for anomalies.
-- 7.3 Strategies for detecting and mitigating.
+**7. Caza de amenazas para amenazas internas**
 
-**8. Threat hunting for advanced persistent threats**
+- 7.1 Indicadores de amenazas internas.
+- 7.2 Monitoreo de la actividad del usuario para anomalías.
+- 7.3 Estrategias para la detección y mitigación.
 
-- 8.1 Characteristics of APTs.
-- 8.2 TTP’s.
-- 8.3 Strategies for APT detection.
+**8. Caza de amenazas para amenazas persistentes avanzadas**
 
-**9.Threat hunting in cloud environments**
+- 8.1 Características de las APT.
+- 8.2 TTP's.
+- 8.3 Estrategias para la detección de APT.
 
-- 9.1 Security challenges in cloud environments.
-- 9.2 Cloud-specific techniques.
-- 9.3 Securing cloud workloads.
+**9. Caza de amenazas en entornos de nube**
+
+- 9.1 Desafíos de seguridad en entornos de nube.
+- 9.2 Técnicas específicas de la nube.
+- 9.3 Asegurando cargas de trabajo en la nube.
