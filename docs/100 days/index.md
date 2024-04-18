@@ -15,7 +15,7 @@ El principal objetivo es aprender sobre un tema. Dedicando a realizar el reto m�
 
 
 {: .work}
->*Se está realizando el reto actualmente. Para ver el progreso día a día visita el apartado de [Diario de Registro](https://nottaroff.github.io/workspace/docs/100%20days/registro/).*
+>*Se está realizando el reto actualmente. Para ver el progreso día a día visita el apartado de [Registro](https://nottaroff.github.io/workspace/docs/100%20days/registro/) .*
 
 
 ## Índice del reto
