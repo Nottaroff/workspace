@@ -8,6 +8,12 @@ has_children: false
 
 # Pentesting  📕
 ---
+
+{: .warning }
+> Las herramientas presentes en este apartado son invasivas; **no** podemos utilizar estas técnicas sin el consentimiento o la aprobación por parte del objetivo.                     
+>*Podemos emplearlas a nivel didáctico en plataformas como HacktheBox o TryHackme.*. 
+
+
 **Pequeña guía sobre las herramientas básicas necesarias para el pentesting.**
 
 ## Puertos destacables 🔑
@@ -33,10 +39,6 @@ https://nmap.org/
 
 Es una herramienta de escaneo de puertos y análisis de redes de código abierto que se utiliza para identificar hosts y servicios en una red
 
-{: .warning }
->Busquedas invasivas, no podemos utilizar estas técnicas sin un consentimiento o aprobación por parte del objetivo.
-
-
 ### Escaneo de Hosts:
 
 `nmap -n -sn --reason --min-rate 2000 10.0.0.0/24 -oN hostDiscovery`
@@ -57,10 +59,6 @@ Es una herramienta de escaneo de puertos y análisis de redes de código abierto
 https://github.com/ffuf/ffuf
 Herramienta de fuzzing de código abierto.
 
-{: .warning }
->Busquedas invasivas, no podemos utilizar estas técnicas sin un consentimiento o aprobación por parte del objetivo.
-
-
 
 ### Enumeración de URL:
 `ffuf -u http://localhost:3000/FUZZ  -fc 404,403 -t 200 -w /usr/share/wordlists/SecLists/Discovery/Web-Content/big.txt`
@@ -77,9 +75,6 @@ Herramienta de fuzzing de código abierto.
 https://github.com/OJ/gobuster
 
 Herramienta de enumeración de directorios y subdominios.
-
-{: .warning }
-> Busquedas invasivas, no podemos utilizar estas técnicas sin un consentimiento o aprobación por parte del objetivo.
 
 
 ### Enumeración de URL:

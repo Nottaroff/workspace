@@ -1,6 +1,7 @@
 title: Ilya Natarov
 description: Welcome to my webpage! 
 theme: just-the-docs
+lang: es-ES
 
 url: https://nottaroff.github.io
 
@@ -9,6 +10,9 @@ color_scheme: dark
 
 #Web Logo
 logo: "/media/logo.png"
+
+favicon_ico: "/media/n-web-logo.png"
+
 
 callouts:
   warning:
