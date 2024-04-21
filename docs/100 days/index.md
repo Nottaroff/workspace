@@ -29,14 +29,17 @@ El principal objetivo es aprender sobre un tema. Dedicando a realizar el reto m�
 - [1.5 Etapas](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#14-etapas)
 - [1.6 Glosario](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#15-glosario)
 
-**2. Recopilación y análisis de información sobre amenazas**
-- 2.1 Fuentes de inteligencia de amenazas.
-- 2.2 Técnicas para recopilar información.
-- 2.3 Métodos analíticos.
+**[2.Recopilación y análisis de información sobre amenazas](https://nottaroff.github.io/workspace/docs/100%20days/2.%20Recopilacion/)**🧾
 
-**3. Técnicas de Caza de Amenazas.**
+- [2.1 Fuentes de inteligencia de amenazas](https://nottaroff.github.io/workspace/docs/100%20days/2.%20Recopilacion/#21-fuentes-de-inteligencia-de-amenazas-%EF%B8%8F) 
+- [2.2 Técnicas para la recopilación de información.](https://nottaroff.github.io/workspace/docs/100%20days/2.%20Recopilacion/#22-técnicas-para-la-recopilación-de-información-)
+- [2.3 Métodos analíticos.](https://nottaroff.github.io/workspace/docs/100%20days/2.%20Recopilacion/#23-métodos-analíticos-%EF%B8%8F)
+- [2.4 Gestión de Datos](https://nottaroff.github.io/workspace/docs/100%20days/2.%20Recopilacion/#24-gestión-de-datos-)
 
-**4. Herramientas.**
+
+**[3. Técnicas y Herramientas de Caza de Amenazas](https://nottaroff.github.io/workspace/docs/100%20days/3.%20Tecnicas%20y%20Herramientas/)** ⚒️
+- [3.1 Técnicas comunes del Threat Hunting ](https://nottaroff.github.io/workspace/docs/100%20days/3.%20Tecnicas%20y%20Herramientas/#31-técnicas-comunes-del-threat-hunting-) 
+- [3.2 Herramientas para la Caza de Amenazas ](https://nottaroff.github.io/workspace/docs/100%20days/3.%20Tecnicas%20y%20Herramientas/#32-herramientas-para-la-caza-de-amenazas-)
 
 **5. Caza de amenazas en entornos de red.**
 
