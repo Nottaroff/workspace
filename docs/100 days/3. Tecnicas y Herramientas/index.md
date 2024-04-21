@@ -7,7 +7,7 @@ parent: 100 days challenge 🗻
 
 ---
 
-# 3. Técnicas y heramientas del Threat Hunting ⚒️
+# 3. Técnicas y herramientas del Threat Hunting ⚒️
 ---
 ## Índice 
 
@@ -77,3 +77,5 @@ El modelo de madurez en caza describe cinco niveles de capacidad organizacional 
 Un modelo de madurez proporciona una guía clara para aquellos que desean adentrarse en la caza, ayudándoles a entender qué capacidad inicial sería adecuada.
 
 Para las organizaciones que ya cuentan con equipos de caza, el HMM es útil para evaluar su nivel de madurez actual y trazar una ruta de mejora. Los equipos pueden comparar sus capacidades con las descritas en el modelo y luego planificar cómo desarrollar habilidades y capacidades de recolección de datos para alcanzar el próximo nivel de madurez. Es crucial tener claridad sobre la posición actual y los objetivos futuros para avanzar de manera efectiva.
+
+[![Captura-de-pantalla-2024-04-21-204423.png](https://i.postimg.cc/vHqSjntn/Captura-de-pantalla-2024-04-21-204423.png)](https://postimg.cc/9r9pwrSX)

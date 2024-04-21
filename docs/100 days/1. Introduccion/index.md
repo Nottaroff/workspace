@@ -11,12 +11,12 @@ parent: 100 days challenge 🗻
 ---
 ## Índice 
 
-- [1.1 Introducción](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#11-introducción) 
-- [1.2 Tipos de Threat Hunting](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#12-tipos-de-threat-hunting)
-- [1.3 Metodologías](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#13-metodologias)
-- [1.4 Importancia del Threat Hunting](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#14-importancia-del-threat-hunting)
-- [1.5 Etapas](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#14-etapas)
-- [1.6 Glosario](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#15-glosario)
+- [1.1 Introducción](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccio/#11-introducción) 
+- [1.2 Tipos de Threat Hunting](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccio/#12-tipos-de-threat-hunting)
+- [1.3 Metodologías](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccio/#13-metodologias)
+- [1.4 Importancia del Threat Hunting](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccio#14-importancia-del-threat-hunting)
+- [1.5 Etapas](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccio/#14-etapas)
+- [1.6 Glosario](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccio/#15-glosario)
 
 ---
 
