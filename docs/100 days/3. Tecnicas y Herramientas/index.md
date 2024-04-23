@@ -1,5 +1,5 @@
 ---
-title: 3. Técnicas y heramientas del Threat Hunting ⚒️
+title: 3. Técnicas y herramientas del Threat Hunting ⚒️
 layout: default
 has_toc: false
 nav_order: 4
