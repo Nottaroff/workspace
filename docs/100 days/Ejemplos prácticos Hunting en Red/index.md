@@ -1,12 +1,12 @@
 ---
-title:  Ejemplo de Hunting entornos de red 🥋
+title:  Ejemplo de Hunting en entornos de red 🥋
 layout: default
 has_toc: false
 nav_order: 6
 parent: 100 days challenge 🗻
 has_children: true
 ---
-# Ejemplos prácticos de Hunting entornos de red 🥋
+# Ejemplos prácticos de Hunting en entornos de red 🥋
 ---
 
 ## Command and Controls over DNS 🏷️
