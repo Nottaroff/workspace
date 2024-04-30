@@ -41,33 +41,33 @@ El principal objetivo es aprender sobre un tema. Dedicando a realizar el reto m�
 - [3.1 Técnicas comunes del Threat Hunting ](https://nottaroff.github.io/workspace/docs/100%20days/3.%20Tecnicas%20y%20Herramientas/#31-técnicas-comunes-del-threat-hunting-) 
 - [3.2 Herramientas para la Caza de Amenazas ](https://nottaroff.github.io/workspace/docs/100%20days/3.%20Tecnicas%20y%20Herramientas/#32-herramientas-para-la-caza-de-amenazas-)
 
-**5. Caza de amenazas en entornos de red.**
+**4. Hunting en entornos de red.**
 
-- 5.1 Técnicas de análisis de tráfico de red.
-- 5.2 Análisis de registros para seguridad de red.
-- 5.3 Búsqueda de indicadores de compromiso.
+- 4.1 Técnicas de análisis de tráfico de red.
+- 4.2 Análisis de registros para seguridad de red.
+- 4.3 Búsqueda de indicadores de compromiso.
 
-**6. Caza de amenazas en entornos de endpoints.**
+**5. Caza de amenazas en entornos de endpoints.**
 
-- 6.1 Técnicas de ocultación de malware.
-- 6.2 Descubriendo la Reconocimiento Interno.
-- 6.3 Descubriendo el Movimiento Lateral.
-- 6.4 Técnicas de adquisición de datos.
+- 5.1 Técnicas de ocultación de malware.
+- 5.2 Descubriendo la Reconocimiento Interno.
+- 5.3 Descubriendo el Movimiento Lateral.
+- 5.4 Técnicas de adquisición de datos.
 
-**7. Caza de amenazas para amenazas internas**
+**6. Caza de amenazas para amenazas internas**
 
-- 7.1 Indicadores de amenazas internas.
-- 7.2 Monitoreo de la actividad del usuario para anomalías.
-- 7.3 Estrategias para la detección y mitigación.
+- 6.1 Indicadores de amenazas internas.
+- 6.2 Monitoreo de la actividad del usuario para anomalías.
+- 6.3 Estrategias para la detección y mitigación.
 
-**8. Caza de amenazas para amenazas persistentes avanzadas**
+**7. Caza de amenazas para amenazas persistentes avanzadas**
 
-- 8.1 Características de las APT.
-- 8.2 TTP's.
-- 8.3 Estrategias para la detección de APT.
+- 7.1 Características de las APT.
+- 7.2 TTP's.
+- 7.3 Estrategias para la detección de APT.
 
-**9. Caza de amenazas en entornos de nube**
+**8. Caza de amenazas en entornos de nube**
 
-- 9.1 Desafíos de seguridad en entornos de nube.
-- 9.2 Técnicas específicas de la nube.
-- 9.3 Asegurando cargas de trabajo en la nube.
+- 8.1 Desafíos de seguridad en entornos de nube.
+- 8.2 Técnicas específicas de la nube.
+- 8.3 Asegurando cargas de trabajo en la nube.
