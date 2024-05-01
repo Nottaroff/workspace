@@ -19,33 +19,44 @@ El principal objetivo es aprender sobre un tema. Dedicando a realizar el reto m�
 
 
 ## Índice del reto
+---
+**1. Introducción al Threat Hunting**🎬
 
-[**1. Introducción al Threat Hunting**](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion) 🎬
+- [1.1 Definición](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccion/#11-introducción) 
+- [1.2 Tipos](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccion/#12-tipos-de-threat-hunting)
+- [1.3 Metodologías](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccion/#13-metodologias)
+- [1.4 Importancia del Threat Hunting](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccion/#14-importancia-del-threat-hunting)
+- [1.5 Etapas](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccion/#14-etapas)
+- [1.6 Glosario](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccion/#15-glosario)
 
-- [1.1 Definición](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#11-introducción) 
-- [1.2 Tipos](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#12-tipos-de-threat-hunting)
-- [1.3 Metodologías](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#13-metodologias)
-- [1.4 Importancia del Threat Hunting](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#14-importancia-del-threat-hunting)
-- [1.5 Etapas](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#14-etapas)
-- [1.6 Glosario](https://nottaroff.github.io/workspace/docs/100%20days/Introduccion/#15-glosario)
+---
 
-**[2.Recopilación y análisis de información sobre amenazas](https://nottaroff.github.io/workspace/docs/100%20days/2.%20Recopilacion/)**🧾
+
+**2.Recopilación y análisis de información sobre amenazas**🧾
 
 - [2.1 Fuentes de inteligencia de amenazas](https://nottaroff.github.io/workspace/docs/100%20days/2.%20Recopilacion/#21-fuentes-de-inteligencia-de-amenazas-%EF%B8%8F) 
 - [2.2 Técnicas para la recopilación de información.](https://nottaroff.github.io/workspace/docs/100%20days/2.%20Recopilacion/#22-técnicas-para-la-recopilación-de-información-)
 - [2.3 Métodos analíticos.](https://nottaroff.github.io/workspace/docs/100%20days/2.%20Recopilacion/#23-métodos-analíticos-%EF%B8%8F)
 - [2.4 Gestión de Datos](https://nottaroff.github.io/workspace/docs/100%20days/2.%20Recopilacion/#24-gestión-de-datos-)
 
+---
 
-**[3. Técnicas y Herramientas de Caza de Amenazas](https://nottaroff.github.io/workspace/docs/100%20days/3.%20Tecnicas%20y%20Herramientas/)** ⚒️
+**3. Técnicas y Herramientas de Caza de Amenazas** ⚒️
 - [3.1 Técnicas comunes del Threat Hunting ](https://nottaroff.github.io/workspace/docs/100%20days/3.%20Tecnicas%20y%20Herramientas/#31-técnicas-comunes-del-threat-hunting-) 
 - [3.2 Herramientas para la Caza de Amenazas ](https://nottaroff.github.io/workspace/docs/100%20days/3.%20Tecnicas%20y%20Herramientas/#32-herramientas-para-la-caza-de-amenazas-)
 
-**4. Hunting en entornos de red.**
+---
 
-- 4.1 Técnicas de análisis de tráfico de red.
-- 4.2 Análisis de registros para seguridad de red.
-- 4.3 Búsqueda de indicadores de compromiso.
+**4. Hunting en entornos de red** 
+
+- [4.1 Técnicas de análisis de tráfico de red. 🧬](https://nottaroff.github.io/workspace/docs/100%20days/4.%20Hunting%20en%20entornos%20de%20red/#41-técnicas-de-análisis-de-tráfico-de-red-) 
+- [4.2 Análisis de registros para seguridad en redes 🛡️](https://nottaroff.github.io/workspace/docs/100%20days/4.%20Hunting%20en%20entornos%20de%20red/#42-análisis-de-registros-para-seguridad-en-redes-%EF%B8%8F)
+- [4.3 Búsqueda de amenazas 🕷️](https://nottaroff.github.io/workspace/docs/100%20days/4.%20Hunting%20en%20entornos%20de%20red/#43-búsqueda-de-amenazas-%EF%B8%8F)
+    - [4.3.1 Ataques de Denegación de Servicio Distribuido (DDoS) ⛓️](https://nottaroff.github.io/workspace/docs/100%20days/4.%20Hunting%20en%20entornos%20de%20red/#431-ataques-de-denegación-de-servicio-distribuido-ddos-%EF%B8%8F)
+    - [4.3.2 Threat Hunting de Dominios Sospechosos 🔗](https://nottaroff.github.io/workspace/docs/100%20days/4.%20Hunting%20en%20entornos%20de%20red/#432-threat-hunting-de-dominios-sospechosos-)
+    - [4.3.3 Hunting de tráfico irregular 🧧](https://nottaroff.github.io/workspace/docs/100%20days/4.%20Hunting%20en%20entornos%20de%20red/#433-hunting-de-tráfico-irregular-)
+
+---
 
 **5. Caza de amenazas en entornos de endpoints.**
 

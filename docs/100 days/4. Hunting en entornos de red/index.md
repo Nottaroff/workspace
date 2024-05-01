@@ -1,13 +1,24 @@
 ---
-title: 4. Hunting en entornos de red 🛜
+title: 4. Hunting en entornos de red
 layout: default
 has_toc: false
 nav_order: 5
 parent: 100 days challenge 🗻
-has_children: true
----
-# Hunting en entornos de red 🛜
 
+---
+
+# Hunting en entornos de red 🛜
+---
+## Índice 
+
+- [4.1 Técnicas de análisis de tráfico de red. 🧬](https://nottaroff.github.io/workspace/docs/100%20days/4.%20Hunting%20en%20entornos%20de%20red/#41-técnicas-de-análisis-de-tráfico-de-red-) 
+- [4.2 Análisis de registros para seguridad en redes 🛡️](https://nottaroff.github.io/workspace/docs/100%20days/4.%20Hunting%20en%20entornos%20de%20red/#42-análisis-de-registros-para-seguridad-en-redes-%EF%B8%8F)
+- [4.3 Búsqueda de amenazas 🕷️](https://nottaroff.github.io/workspace/docs/100%20days/4.%20Hunting%20en%20entornos%20de%20red/#43-búsqueda-de-amenazas-%EF%B8%8F)
+    - [4.3.1 Ataques de Denegación de Servicio Distribuido (DDoS) ⛓️](https://nottaroff.github.io/workspace/docs/100%20days/4.%20Hunting%20en%20entornos%20de%20red/#431-ataques-de-denegación-de-servicio-distribuido-ddos-%EF%B8%8F)
+    - [4.3.2 Threat Hunting de Dominios Sospechosos 🔗](https://nottaroff.github.io/workspace/docs/100%20days/4.%20Hunting%20en%20entornos%20de%20red/#432-threat-hunting-de-dominios-sospechosos-)
+    - [4.3.3 Hunting de tráfico irregular 🧧](https://nottaroff.github.io/workspace/docs/100%20days/4.%20Hunting%20en%20entornos%20de%20red/#433-hunting-de-tráfico-irregular-)
+
+---
 El threat hunting  en entornos de red, implica la búsqueda activa y sistemática de actividades maliciosas o anomalías dentro de una red. La caza de amenazas en redes implica el uso de  herramientas y métodos para monitorear y analizar activamente:
 
 - Tráfico de red
@@ -70,6 +81,7 @@ Para la detección y mitigación de posibles amenazas y vulnerabilidades dentro 
 
 ### 4.3.1 Ataques de Denegación de Servicio Distribuido (DDoS) ⛓️
 
+---
 Un ataque de Denegación de Servicio Distribuido (DDoS) ocurre cuando múltiples máquinas atacantes intentan sobrecargar a las máquinas víctimas.
 A menudo, los ataques DDoS se utilizan como una cortina de humo. Otros tipos de ataques aprovechan la confusión para pasar desapercibidos.
 
@@ -87,6 +99,7 @@ Algunos factores que nos pueden indicar un ataque DDoS:
 
 ### 4.3.2 Threat Hunting de Dominios Sospechosos 🔗
 
+---
 Algunos de los motivos por las cuales un dominio puede considerarse sospechoso:
 
 {: .importance }
@@ -129,7 +142,8 @@ Cuando se busca identificar posibles ataques contra servidores web, los registro
 
 Es importante tener en cuenta que los datos de los registros del servidor web pueden ser manipulados por los atacantes para intentar ocultar sus acciones. Por lo tanto, es crucial realizar un análisis exhaustivo y estar atento a cualquier actividad inusual que pueda indicar una brecha de seguridad.
 
-## 4.3.3 Hunting de tráfico irregular 🧧
+### 4.3.3 Hunting de tráfico irregular 🧧
+
 ---
 
 Las irregularidades en el tráfico de red son indicadores útiles para los cazadores de amenazas. Los autores de malware utilizan una variedad de técnicas para ocultar el tráfico de ataque de comando y control.
