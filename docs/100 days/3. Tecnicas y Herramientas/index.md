@@ -48,7 +48,8 @@ El nivel de madurez vendrá definido por una serie de factores como son:
 ### The Hunting Maturity Model (HMM)
 El modelo de madurez en caza describe cinco niveles de capacidad organizacional en caza, que van desde HM0 (el menos capaz) hasta HM4 (el más).
 
-![maturity.png](/media/tecnicas/maturity.png)
+<img src="/media/tecnicas/maturity.png" alt="Maturity">
+
 
 | **HM0 - INICIAL**       |
 |:-------------|
@@ -78,4 +79,4 @@ Un modelo de madurez proporciona una guía clara para aquellos que desean adentr
 
 Para las organizaciones que ya cuentan con equipos de caza, el HMM es útil para evaluar su nivel de madurez actual y trazar una ruta de mejora. Los equipos pueden comparar sus capacidades con las descritas en el modelo y luego planificar cómo desarrollar habilidades y capacidades de recolección de datos para alcanzar el próximo nivel de madurez. Es crucial tener claridad sobre la posición actual y los objetivos futuros para avanzar de manera efectiva.
 
-![HMM3.png](/media/tecnicas/HMM3.png))
+<img src="/media/tecnicas/HMM3.png" alt="HMM3.png">
