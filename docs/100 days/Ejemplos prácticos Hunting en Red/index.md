@@ -49,7 +49,7 @@ Veamos más en profundidad el ataque: Haremos una consulta sobre el dominio y el
 ![ELK-2.png](https://i.postimg.cc/mZFCHYvL/ELK-2.png)
 
 
-Se pueden observar varias caracteristicas de acitividad sospehosa:
+Se pueden observar varias caracteristicas de actividad sospehosa:
 
 {: .importance }
 >- Utilización de subdominios hexadecimales.
