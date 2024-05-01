@@ -76,7 +76,7 @@ Algunas técnicas comunes son:
 
 Este apartado aborda cómo los datos se gestionan y estructuran desde la perspectiva del cazador de amenazas para facilitar su análisis.
 
-<img src="https://i.postimg.cc/4x3ZPByR/DATA-GOVERNANCE.png" alt="Data Governance">
+[DATA-GOVERNANCE.png](https://i.postimg.cc/4x3ZPByR/DATA-GOVERNANCE.png)
 
 ### 📒Documentación de Datos (Data documentation)
 
