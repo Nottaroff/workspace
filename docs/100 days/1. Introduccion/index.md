@@ -33,7 +33,7 @@ Generalmente, las organizaciones comienzan a desarollar el puesto  de threat hun
 El threat hunting retroalimenta las herramientas de Incident response, proporcionando información valiosa que puede utilizarse para mejorar y ajustar las herramientas y procesos de incident response, fortaleciendo la capacidad de una organización para detectar, responder y mitigar amenazas cibernéticas.  Se estima que los sistemas de detección de amenazas de seguridad, SOC (Centro de Operaciones de Seguridad) de nivel 1 y 2, pueden detectar el 80% de las amenazas en promedio, pero el 20% restante necesita especial atención y una estrategia proactiva para identificarlas lo antes posible.
 
 
-[intro.png](https://i.postimg.cc/ZqNSShrg/intro.png)]
+![intro.png](https://i.postimg.cc/ZqNSShrg/intro.png)]
 
 
 Algunos de los elementos importantes en la práctica de la caza de amenazas incluyen identificar anomalías, luego utilizar herramientas y técnicas para analizar anomalías como una amenaza y, finalmente, encontrar formas de remediar esas amenazas antes de que el atacante las aproveche. La caza de amenazas cibernéticas es una actividad impulsada por datos y depende de la disponibilidad de datos generados a partir de herramientas de monitoreo de puntos finales. Los cazadores de amenazas revisan estos registros de eventos/datos para identificar cualquier patrón de ataque de seguridad nuevo basado en sus modelos de caza redactados.
@@ -85,8 +85,7 @@ La importancia del  threat hunting consiste en:
 
 Actualmente, el Threat Hunting se ha convertido en una herramienta fundamental en el arsenal de cualquier equipo ciberseguridad. Su evolución ha sido impulsada por la necesidad de combatir amenazas cada vez más sofisticadas, aprovechando tecnologías avanzadas y adoptando un enfoque proactivo basado en el comportamiento.
 
-<img src="/media/intro/Threat_graphic.png" alt="Threat Graphic">
-
+![Threat-graphic.png](https://i.postimg.cc/W3Kf85Yv/Threat-graphic.png)]
 
 ## 1.4 Etapas
 
