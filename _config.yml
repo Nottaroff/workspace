@@ -36,3 +36,9 @@ callouts:
   importance:
     color: red
     opacity: 0.2
+
+  example:
+    title: Example
+    color: yellow
+    opacity: 0.2
+

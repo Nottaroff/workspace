@@ -58,12 +58,15 @@ El principal objetivo es aprender sobre un tema. Dedicando a realizar el reto m�
 
 ---
 
-**5. Caza de amenazas en entornos de endpoints.**
+**5. Caza de amenazas en entornos de endpoints**
 
-- 5.1 Técnicas de ocultación de malware.
-- 5.2 Descubriendo la Reconocimiento Interno.
-- 5.3 Descubriendo el Movimiento Lateral.
-- 5.4 Técnicas de adquisición de datos.
+- [5.1 Técnicas de Ocultación de Malware🥷🏻](https://nottaroff.github.io/workspace/docs/100%20days/5.%20Hunting%20en%20entornos%20de%20endpoint/#51-técnicas-de-ocultación-de-malware) 
+- [5.2 Descubriendo procesos irregulares](https://nottaroff.github.io/workspace/docs/100%20days/5.%20Hunting%20en%20entornos%20de%20endpoint/#52-descubriendo-procesos-irregulares)
+- [5.3 Detección de movimiento Lateral](https://nottaroff.github.io/workspace/docs/100%20days/5.%20Hunting%20en%20entornos%20de%20endpoint/#54-técnicas-de-adquisición-de-datos-en-threat-hunting)
+- [5.4 Técnicas de Adquisición de Datos en Threat Hunting](https://nottaroff.github.io/workspace/docs/100%20days/4.%20Hunting%20en%20entornos%20de%20red/#431-ataques-de-denegación-de-servicio-distribuido-ddos-%EF%B8%8F)
+
+
+---
 
 **6. Caza de amenazas para amenazas internas**
 
