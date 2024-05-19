@@ -449,3 +449,319 @@ parent: 100 days challenge 🗻
 
   <p>Estos días seguiré realizando varios ejercicios prácticos de detección de ataques en la red y modificando el blog.</p>
 </details>
+
+<details>
+  <summary><strong>⁠⁠⁠Day 17: Practice examples of Network Hunting II</strong></summary>
+  <p>El día de hoy he realizado otros dos ejemplos de hunting en entornos de red. Concretamente en detectar posibles ataques a una aplicación web mediante la ejecución remota de código y otra práctica sobre actividades de phishing detectando enlaces maliciosos y archivos adjuntos abiertos o descargados desde diferentes estaciones de trabajo.</p>
+  
+  <p>Podéis echarle un ojo al reporte aquí:</p>
+  
+  <p>Ejecución remota de código en Web: <a href="https://nottaroff.github.io/workspace/docs/100%20days/Ejemplos%20prácticos%20Hunting%20en%20Red/#ejecución-remota-de-código-en-web-%EF%B8%8F">Informe</a></p>
+  
+  <p>Enlaces y Archivos de Phishing: <a href="https://nottaroff.github.io/workspace/docs/100%20days/Ejemplos%20prácticos%20Hunting%20en%20Red/#enlaces-y-archivos-de-phishing-">Informe</a></p>
+</details>
+
+<details>
+  <summary><strong>⁠Day 18: Malware Hiding Techniques</strong></summary>
+  <p>El día de hoy he estado investigando sobre las técnicas de evasión que utiliza el malware para pasar desapercibido en los sistemas de detección, concretamente los que dependen de firmas o patrones predefinidos.</p>
+  
+  <p><strong>Extracto:</strong></p>
+  <ul>
+    <li><strong>Malware Polimórfico:</strong> Es un tipo de software malicioso que cambia su código o apariencia con cada infección, dificultando su detección y bloqueo por parte de los antivirus tradicionales basados en firmas.</li>
+    <li><strong>Malware Metamórfico:</strong> Modifica tanto su código, estructura y comportamiento en cada infección.</li>
+    <li><strong>Cifrado de archivos:</strong> Consiste en codificar el código malicioso o componentes para ocultar su verdadero propósito y evitar ser detectado por el software de seguridad.</li>
+    <li><strong>Empaquetadores:</strong> Comprimen y cifran el código del malware, creando un nuevo ejecutable que requiere una rutina de desempaquetado específica para ser ejecutada.</li>
+    <li><strong>Cifradores:</strong> Se centran en cifrar el código del malware y generar una rutina de descifrado que puede reconstituir la carga útil maliciosa original en tiempo de ejecución.</li>
+    <li><strong>Ofuscación de Código:</strong> Manipulación intencional de la estructura, lógica y presentación del código para hacerlo más complejo y ocultar los patrones reconocibles del malware.</li>
+  </ul>
+  
+  <p><strong>REFERENCIAS:</strong></p>
+  <ul>
+    <li><a href="https://blog.barracuda.com/2023/11/09/malware-101-signature-evasion-techniques">Malware 101: Signature Evasion Techniques</a></li>
+    <li><a href="https://www.cyfirma.com/research/malware-detection-evasion-techniques/">Malware Detection Evasion Techniques</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary><strong>Day 19: Behaviour-based Evasion Techniques</strong></summary>
+  <p>El día de hoy he visto las diferentes técnicas de evasión basadas en el comportamiento del sistema que utiliza el malware para alterar sus acciones y características y evadir su detección, con algunos ejemplos reales.</p>
+  
+  <p><strong>Extracto:</strong></p>
+  <ul>
+    <li><strong>Detección de sandbox:</strong> El malware puede detectar ciertos comportamientos asociados con entornos de análisis y alterar su comportamiento para evadir el análisis.</li>
+    <li><strong>Trickbot:</strong> Troyano bancario que se propaga principalmente a través de correos electrónicos de phishing y es utilizado para robar información financiera y credenciales de inicio de sesión. <a href="https://attack.mitre.org/software/S0266/">Referencia</a></li>
+    <li><strong>Comprobación del entorno:</strong> Se evalúa el contexto en el que se está ejecutando el malware y puede alterar su comportamiento para evadir la detección.</li>
+    <li><strong>Emotet:</strong> Emplea técnicas de comprobación del entorno para detectar análisis de seguridad y puede cambiar su comportamiento en consecuencia. <a href="https://attack.mitre.org/software/S0367/">Referencia</a></li>
+    <li><strong>Vaciamiento de Procesos:</strong> El malware emplaza su propio código malicioso dentro de procesos legítimos del sistema para ejecutar acciones maliciosas en segundo plano.</li>
+    <li><strong>Poweliks:</strong> Este malware busca un proceso legítimo en el sistema y luego inyecta su código dentro del proceso, reemplazando su funcionalidad legítima con la suya propia. <a href="https://attack.mitre.org/techniques/T1218/011/">Referencia</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary><strong>Day 20: Inyección de malware en procesos y Malware sin archivos</strong></summary>
+  <p>El día de hoy he visto las estrategias que utiliza el malware para insertar su código malicioso en procesos legítimos, así como también el malware que no es un archivo en sí mismo, sino código malicioso que opera completamente dentro de la memoria de una computadora, sin dejar rastro en el sistema de archivos.</p>
+  
+  <p><strong>Técnicas de Inyección de Procesos:</strong></p>
+  <ul>
+    <li><strong>Inyección de DLL:</strong> Inyección de procesos en la que un código malicioso inserta su propia Biblioteca de Enlaces Dinámicos (DLL) en un proceso legítimo que se está ejecutando en memoria.</li>
+    <li><strong>Inyección de Código:</strong> Se inserta código malicioso en el espacio de memoria de un proceso legítimo, alterando su comportamiento para llevar a cabo acciones maliciosas.</li>
+    <li><strong>Inyección de Hilos:</strong> El código malicioso crea un nuevo hilo dentro de un proceso legítimo e inyecta su carga útil en el flujo de ejecución de ese hilo.</li>
+    <li><strong>Técnicas de Asignación/Escritura de Memoria:</strong> El malware se asigna dinámicamente memoria dentro del espacio de direcciones del proceso objetivo y luego escribe su carga útil en esa memoria asignada.</li>
+  </ul>
+  
+  <p><strong>Técnicas de Malware Sin Archivos:</strong></p>
+  <ul>
+    <li><strong>Ejecución Basada en Memoria:</strong> El código malicioso se carga y ejecuta directamente en la memoria del sistema.</li>
+    <li><strong>Técnicas de "Living-off-the-land" (LOLbins):</strong> Utilizan herramientas y procesos del sistema preexistentes y confiables para ejecutar actividades maliciosas, a menudo sin necesidad de crear nuevos archivos.</li>
+    <li><strong>Ataques Basados en el Registro:</strong> Implican explotar el Registro de Windows con fines maliciosos.</li>
+    <li><strong>Macros de Documentos:</strong> Se usan scripts integrados dentro de archivos de documentos para realizar acciones maliciosas al abrir el documento.</li>
+  </ul>
+  
+  <p>Puedes encontrar más información y ejemplos detallados en los siguientes enlaces de referencia:</p>
+  <ul>
+    <li><a href="https://attack.mitre.org/software/S0154/">Ejemplo de Cobalt Strike utilizado en ataques de red dirigidos</a></li>
+    <li><a href="https://attack.mitre.org/software/S0446/">Ejemplo de técnicas LOLbins utilizadas por Ryuk en ataques de ransomware</a></li>
+    <li><a href="https://attack.mitre.org/software/S0384/">Ejemplo de ataques basados en el Registro utilizados por Dridex</a></li>
+    <li><a href="https://attack.mitre.org/software/S0386/">Ejemplo de macros de documentos utilizados por Ursnif</a></li>
+  </ul>
+</details>
+
+<details>
+  <summary><strong>⁠Day 21: Detección de procesos irregulares</strong></summary>
+  <p>El día de hoy, he visto que uno de los modos más comunes en que el malware intenta evitar la detección es haciéndose pasar por un proceso legítimo dentro de un sistema, así que he estado investigando cómo lo hace y cómo podemos detectarlo.</p>
+  
+  <p><strong>Extracto de técnicas que usa el malware para pasar desapercibido:</strong></p>
+  <ul>
+    <li><strong>Suplantación de procesos críticos:</strong> El malware puede hacerse pasar por procesos legítimos ejecutándose bajo un nombre similar. Una forma de detectar este malware es usar algoritmos de similitud de cadenas para buscar cadenas que no sean iguales pero tampoco muy diferentes.</li>
+    <li><strong>Ubicaciones ejecutables inusuales:</strong> El malware puede ejecutarse desde ubicaciones inusuales para dificultar su detección. También podemos ver cómo algunos aprovechan ubicaciones específicas como parte de sus tácticas de evasión y secuestro.</li>
+    <li><strong>Jerarquía de procesos:</strong> La jerarquía de procesos es una característica fundamental tanto en sistemas Windows como en Unix. Al buscar irregularidades en esta jerarquía podemos identificar posibles suplantadores o procesos maliciosos.</li>
+    <li><strong>Secuestro de procesos:</strong> Algunos tipos de malware pueden tomar el control de un proceso existente y ejecutar con su espacio de memoria y permisos. Esto puede lograrse mediante ganchos de función, modificaciones/patching en línea o inyección de DLL (Dynamic Link Library).</li>
+  </ul>
+</details>
+
+<details>
+  <summary><strong>Day 22: Detección de Movimiento Lateral</strong></summary>
+  <p>El día de hoy he visto los puntos estratégicos cruciales en la detección de movimiento lateral en endpoints durante el threat hunting.</p>
+  
+  <p><strong>Extracto:</strong></p>
+  <ul>
+    <li><strong>Movimientos laterales y reconocimiento:</strong> Los atacantes avanzan lateralmente dentro de una red una vez que comprometen un punto de entrada inicial, recopilando información sobre usuarios, privilegios y sistemas accesibles para planificar sus siguientes movimientos.</li>
+    <li><strong>Uso explícito de credenciales:</strong> La autenticación mediante credenciales explícitas es común en entornos Windows, pero representa una vulnerabilidad potencial que los atacantes pueden aprovechar. Es esencial implementar un monitoreo proactivo de las credenciales explícitas y establecer listas blancas para usuarios y aplicaciones autorizadas.</li>
+    <li><strong>Monitoreo del registro y archivos del sistema:</strong> Tanto el registro como los archivos del sistema son objetivos principales para el malware en busca de persistencia y control. La auditoría del registro y el monitoreo de las marcas de tiempo de los archivos son prácticas esenciales para identificar cambios inusuales que podrían indicar actividad maliciosa.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><strong>⁠Day 23: Detección de malware en archivos del sistema</strong></summary>
+  <p>En el threat hunting enfocado a los endpoint, es importante tener constancia de los archivos presentes en el sistema y las actividades anómalas. Hoy he estado investigando qué tener en cuenta al buscar amenazas a la hora de analizar los archivos y algunos ejemplos.</p>
+  
+  <p><strong>Extracto de los temas investigados:</strong></p>
+  <ul>
+    <li><strong>Nombres de archivo maliciosos conocidos:</strong> Ciertas familias de malware usan nombres predecibles en sus tácticas de infección y persistencia en sistemas comprometidos. Identificar estos nombres es una estrategia efectiva para un cazador de amenazas.</li>
+    <li><strong>Extensiones de archivo:</strong> Los autores de malware utilizan diversas extensiones para sus ejecutables, como .exe, .bat, .cmd, .com, .lnk, .pif, .vbs, .scr y .wsh. También es importante considerar que otras extensiones pueden representar una amenaza potencial.</li>
+    <li><strong>Anulación de izquierda a derecha:</strong> Es una técnica usada por atacantes para ocultar información maliciosa en nombres de archivos y textos, dificultando la detección de nombres de archivo maliciosos.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><strong>⁠⁠Day 24: Data source de equipos para el Threat Hunting</strong></summary>
+  <p>Los datos que podemos visualizar en los endpoints no ofrecen una visión detallada de la actividad en cada dispositivo. Esto es importante para poder detectar indicadores de compromiso y comportamientos anómalos. Hoy he estado repasando los diferentes puntos de recopilación de información que se pueden obtener de equipos con Windows/Linux.</p>
+  
+  <p><strong>Extracto sobre puntos importantes:</strong></p>
+  <ul>
+    <li><strong>AV Basado en el Host:</strong> Permite la detección de antivirus en máquinas individuales, con reglas personalizadas que pueden adaptarse a las necesidades de seguridad específicas de cada dispositivo.</li>
+    <li><strong>Sistemas de Detección/Prevención de Intrusiones Basados en el Host:</strong>
+      <ul>
+        <li><strong>HIDS (Sistema de Detección de Intrusiones Basado en el Host):</strong> Detecta posibles amenazas y ataques en un sistema de host mediante la monitorización de la actividad del sistema en busca de cambios sospechosos y actividad de malware.</li>
+        <li><strong>HIPS (Sistema de Prevención de Intrusiones Basado en el Host):</strong> Previene la actividad maliciosa en un sistema de host mediante el uso de análisis de comportamiento, control de aplicaciones y prevención de intrusos en la red.</li>
+      </ul>
+    </li>
+    <li><strong>Registros de Antivirus:</strong> Estos registros pueden incluir eventos de detección de amenazas, actualizaciones de firmas, análisis programados y acciones tomadas por el software antivirus para mitigar las amenazas detectadas.</li>
+    <li><strong>Firewalls Basados en el Host:</strong> Proporcionan visibilidad y control granulares sobre el tráfico de red en sistemas individuales. Los registros del firewall pueden analizarse para identificar patrones de tráfico sospechoso y actividades maliciosas.</li>
+    <li><strong>Registros de Eventos de Windows:</strong> Estos registros proporcionan información detallada sobre los eventos del sistema, como intentos de inicio de sesión, instalaciones de software y errores del sistema. La revisión de estos registros puede ayudar a identificar actividades maliciosas y posibles puntos de compromiso en los sistemas Windows.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><strong>⁠Day 25: Calidad de Datos y Metodologías</strong></summary>
+  <p>Después de explorar las diferentes fuentes de datos, he investigado la importancia de la calidad de los datos en la caza de amenazas:</p>
+  
+  <p><strong>Calidad de Datos en la Caza:</strong></p>
+  <ul>
+    <li><strong>Objetivos de Calidad de Datos:</strong>
+      <ul>
+        <li>Mejora de la Productividad: Reducir el tiempo dedicado a corregir problemas de datos.</li>
+        <li>Consistencia y Complejidad: La consistencia entre fuentes de datos facilita análisis complejos.</li>
+        <li>Automatización Eficiente: Mejorar la calidad de datos optimiza los procesos de automatización.</li>
+      </ul>
+    </li>
+    <li><strong>Importancia de la Calidad de Datos:</strong> Problemas comunes, como discrepancias en los campos de datos, impactan en la capacidad de detectar y responder a amenazas.</li>
+    <li><strong>Metodología Básica:</strong>
+      <ol>
+        <li>Identificación de Fuentes de Datos</li>
+        <li>Determinación de Fuentes Necesarias</li>
+        <li>Mapeo de Fuentes de Datos</li>
+        <li>Definición de Dimensiones de Calidad</li>
+        <li>Desarrollo de Sistema de Puntuación</li>
+        <li>Evaluación de la Calidad</li>
+      </ol>
+    </li>
+    <li><strong>Puntuación General:</strong> Integrar puntuaciones de calidad de datos con evaluaciones de talento y tecnología nos proporciona una métrica completa para medir la efectividad en los compromisos de caza de amenazas.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><strong>⁠Day 25: Calidad de Datos y Metodologías</strong></summary>
+  <p>Después de explorar las diferentes fuentes de datos, he investigado la importancia de la calidad de los datos en la caza de amenazas:</p>
+  
+  <p><strong>Calidad de Datos en la Caza:</strong></p>
+  <ul>
+    <li><strong>Objetivos de Calidad de Datos:</strong>
+      <ul>
+        <li>Mejora de la Productividad: Reducir el tiempo dedicado a corregir problemas de datos.</li>
+        <li>Consistencia y Complejidad: La consistencia entre fuentes de datos facilita análisis complejos.</li>
+        <li>Automatización Eficiente: Mejorar la calidad de datos optimiza los procesos de automatización.</li>
+      </ul>
+    </li>
+    <li><strong>Importancia de la Calidad de Datos:</strong> Problemas comunes, como discrepancias en los campos de datos, impactan en la capacidad de detectar y responder a amenazas.</li>
+    <li><strong>Metodología Básica:</strong>
+      <ol>
+        <li>Identificación de Fuentes de Datos</li>
+        <li>Determinación de Fuentes Necesarias</li>
+        <li>Mapeo de Fuentes de Datos</li>
+        <li>Definición de Dimensiones de Calidad</li>
+        <li>Desarrollo de Sistema de Puntuación</li>
+        <li>Evaluación de la Calidad</li>
+      </ol>
+    </li>
+    <li><strong>Puntuación General:</strong> Integrar puntuaciones de calidad de datos con evaluaciones de talento y tecnología nos proporciona una métrica completa para medir la efectividad en los compromisos de caza de amenazas.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><strong>Day 26: Ejemplos de búsqueda de threats</strong></summary>
+  <p>El otro día consulté dónde buscar las principales fuentes de datos de las que disponemos a la hora de buscar amenazas. Hoy he visto, en algunos casos prácticos más en detalle, qué tipo de amenazas podemos detectar en diferentes fuentes.</p>
+  
+  <p><strong>Registros de Proxy:</strong></p>
+  <ul>
+    <li><strong>Tráfico no autorizado:</strong> Identificar cualquier tráfico que se envíe a través de puertos no autorizados, como el puerto 22, que podría indicar intentos de exfiltración de datos.</li>
+    <li><strong>Patrones de conexión:</strong> Buscar conexiones que exhiban patrones consistentes de bytes de entrada y salida, lo que podría ser una señal de que se está utilizando una técnica de balizamiento para comunicarse con un servidor de comando y control.</li>
+  </ul>
+  
+  <p><strong>Registros de Windows:</strong></p>
+  <ul>
+    <li><strong>Inicio de sesión con credenciales explícitas:</strong> Filtrar eventos de inicio de sesión que utilicen credenciales explícitas, ya que esto podría indicar intentos de movimiento lateral por parte de un atacante.</li>
+    <li><strong>Cambios en grupos privilegiados:</strong> Monitorear los cambios en los grupos privilegiados, ya que esto podría indicar intentos de escalada de privilegios por parte de un intruso.</li>
+    <li><strong>Intentos de inicio de sesión fallidos:</strong> Buscar patrones de intentos de inicio de sesión fallidos, especialmente aquellos que provienen de múltiples cuentas, lo que podría indicar un intento de ataque de fuerza bruta.</li>
+  </ul>
+  
+  <p><strong>Registros de Antivirus:</strong></p>
+  <ul>
+    <li><strong>Detección de programas de volcado de contraseñas:</strong> Identificar cualquier detección de programas conocidos de volcado de contraseñas, como pwdump o mimikatz, ya que esto podría indicar intentos de robo de credenciales.</li>
+    <li><strong>Ejecuciones de programas desconocidos:</strong> Buscar ejecuciones de programas desconocidos que podrían ser herramientas maliciosas utilizadas por un atacante para comprometer el sistema.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><strong>⁠⁠Day 27: Hunting en entornos de endpoints</strong></summary>
+  <p>El día de hoy he actualizado toda la información recopilada durante estos días referente al Threat Hunting en Endpoints.</p>
+  
+  <p>Los puntos detallados son:</p>
+  <ol>
+    <li><a href="https://nottaroff.github.io/workspace/docs/100%20days/5.%20Hunting%20en%20entornos%20de%20endpoint/#51-técnicas-de-ocultación-de-malware-" target="_blank">5.1 Técnicas de Ocultación de Malware</a></li>
+    <li><a href="https://nottaroff.github.io/workspace/docs/100%20days/5.%20Hunting%20en%20entornos%20de%20endpoint/#52-descubriendo-procesos-irregulares" target="_blank">5.2 Descubriendo procesos irregulares</a></li>
+    <li><a href="https://nottaroff.github.io/workspace/docs/100%20days/5.%20Hunting%20en%20entornos%20de%20endpoint/#54-técnicas-de-adquisición-de-datos-en-threat-hunting" target="_blank">5.3 Detección de movimiento Lateral</a></li>
+    <li><a href="https://nottaroff.github.io/workspace/docs/100%20days/5.%20Hunting%20en%20entornos%20de%20endpoint/#54-técnicas-de-adquisición-de-datos-en-threat-hunting" target="_blank">5.4 Técnicas de Adquisición de Datos en Threat Hunting</a></li>
+  </ol>
+</details>
+
+<details>
+  <summary><strong>Day 28: Detección de conexiones de larga duración</strong></summary>
+  <p>El día de hoy he creado un pequeño laboratorio con una VM Ubuntu. Utilizando Wireshark, Zeek y Rita con el objetivo de identificar conexiones de red de larga duración.</p>
+  <p>Puedes acceder al laboratorio en el siguiente enlace: <a href="https://activecm.github.io/threat-hunting-labs/long_connections/" target="_blank">Laboratorio de conexiones de larga duración</a></p>
+  <p>Wireshark permite visualizar y analizar paquetes de red, mientras que Zeek genera registros detallados de la actividad de la red. Ambas herramientas son fundamentales para identificar conexiones TCP y UDP de larga duración, lo que se logra ordenando las conexiones por duración. Es importante tener en cuenta que las diferencias en el manejo de conexiones UDP entre Wireshark y Zeek pueden influir en los resultados del análisis.</p>
+  <p>Además, es crucial considerar el comportamiento del malware, que puede generar conexiones intermedias de duración media para evitar la detección de conexiones de larga duración. Por lo tanto, es necesario evaluar no solo la duración de las conexiones, sino también su naturaleza y posibles implicaciones de seguridad.</p>
+</details>
+
+<details>
+  <summary><strong>⁠⁠Day 29: Sentinel Threat Hunting Course</strong></summary>
+  <p>El día de hoy he empezado un curso de Threat Hunting en los recursos de SentinelOne. El curso es realizar hunting con el entorno de Sentinel, pero también tiene teoría introductoria y ejemplos de uso.</p>
+  <p>Uno de los hallazgos que identifiqué durante el ejemplo práctico fue la detección de una conexión entrante a un punto final a través del protocolo RDP desde una dirección IP externa. Además, se observaron conexiones entrantes en puertos específicos, lo que podría indicar un posible abuso de herramientas como PSExec.</p>
+  <p>También detecté la ejecución de comandos de sistema (cmd.exe) y scripts de PowerShell (powershell.exe), utilizados para acciones como la creación de archivos y conexiones salientes a recursos externos.</p>
+  <h3>Consultas Utilizadas:</h3>
+  <ul>
+    <li>Filtrado de conexiones RDP entrantes desde direcciones IP externas:
+      <pre>DstPort = "3389" AND SrcIP Not In ("10.0.1.1", "10.0.1.10")</pre>
+    </li>
+    <li>Búsqueda de instancias de PSExec no asociadas al usuario "administrador":
+      <pre>ProcessName contains "PSExec" AND User not Contains "administrador"</pre>
+    </li>
+    <li>Identificación de actividades de PowerShell conectándose a través del puerto 21:
+      <pre>Process contains "Powershell" AND DstPort = "21" AND ProcessCMD contains "iex"</pre>
+    </li>
+    <li>Detección de comandos de PowerShell involucrando FTP y ejecución de comandos:
+      <pre>ProcessName contains "Powershell" AND ProcessCmd contains "ftp" AND ProcessCMD contains "iex"</pre>
+    </li>
+  </ul>
+</details>
+
+<details>
+  <summary><strong>⁠⁠Day 30: Sentinel Threat Hunting Course II</strong></summary>
+  <p>El día de hoy he seguido con el curso de Sentinel University sobre lo que tenemos que tener en cuenta a la hora de usar la opción de Visibility - Hunting.</p>
+  <p>SentinelOne es un XDP que identifica y neutraliza posibles riesgos de seguridad en los sistemas. Al utilizar la funcionalidad de Deep Visibility, podemos examinar exhaustivamente eventos, artefactos y datos de objetos para detectar cualquier actividad sospechosa o maliciosa que pueda pasar desapercibida para los sistemas de detección tradicionales.</p>
+  <p>Cuando realizamos threat hunting en Sentinel, es importante tener en cuenta que buscamos nuevas variantes de malware que aún no han sido detectadas por el sistema. Estas amenazas pueden ser únicas y escapar de la detección de inteligencia artificial. Por lo tanto, es crucial marcar toda la línea de tiempo como sospechosa o maliciosa y examinar cada evento en su totalidad para encontrar cualquier indicio de actividad no autorizada.</p>
+  <p>Una vez identificada la actividad sospechosa, podemos utilizar la información detallada proporcionada por los objetos de visibilidad profunda para investigar la causa raíz de la amenaza. Esto implica encontrar todos los artefactos relacionados con el incidente y determinar hasta qué punto el malware ha infiltrado nuestros sistemas.</p>
+  <p>Además de responder a las amenazas detectadas, la información recopilada durante la caza de amenazas nos permite establecer reglas y políticas de seguridad más efectivas para prevenir futuros ataques. Con una comprensión clara de cómo opera el malware y qué indicadores de compromiso buscar, podemos fortalecer nuestra postura de seguridad y proteger mejor nuestros sistemas.</p>
+</details>
+
+<details>
+  <summary><strong>Day 31: Sentinel Threat Hunting Course Deep Visibility</strong></summary>
+  <p>Siguiendo el curso de Threat Hunting con SentinelOne, el día de hoy he visto el uso de la funcionalidad de Deep Visibility. Este proceso se divide en varias etapas que abarcan desde la preparación hasta la identificación de actividades maliciosas, la obtención de inteligencia y la ejecución de consultas para descubrir posibles amenazas.</p>
+  <p>En la fase de preparación, destaca la importancia de identificar cualquier acción que otorgue a nuestro equipo una ventaja sobre los atacantes. La funcionalidad de Deep Visibility recopila una gran cantidad de información, podremos modificar el tipo de registro que realizará Sentinel al configurar la privacidad de Deep Visibility en las políticas de Sentinel One.</p>
+  <p>La fase de identificación se centra en reconocer una serie de eventos como maliciosos y obtener inteligencia sobre las amenazas o vulnerabilidades que se van a investigar. Destacando la importancia de buscar evidencia, formular artefactos buscables y encontrar eventos que puedan llamar la atención del equipo de seguridad.</p>
+  <p>Finalmente, se detalla la ejecución de queries para analizar los datos recopilados. En Sentinel tenemos presente diferentes tipos de consultas disponibles, como las relacionadas con la fecha y hora, numéricas, de enumeración, de cadenas de caracteres y booleanas. Se han detallado el uso de declaraciones AND para dividir consultas en partes más pequeñas y el manejo de errores al utilizar expresiones regulares.</p>
+</details>
+
+<details>
+  <summary><strong>⁠Day 32: SentinelOne Threat Hunting Course Hunter</strong></summary>
+  <p>Hoy he visto otras herramientas de SentinelOne diseñadas para el Threat Hunting. En particular, me he centrado en la utilidad de Hunter, una extensión del navegador que recopila datos de páginas web y genera consultas en Deep Visibility. Estas consultas están diseñadas específicamente para identificar indicadores que podrían sugerir la presencia de malware.</p>
+  <p>Una característica interesante de Hunter es su biblioteca de consultas, que automatiza la búsqueda de malware con actualizaciones más frecuentes que las disponibles en la consola de gestión estándar de SentinelOne. Esta capacidad de actualización constante proporciona una ventaja significativa en la detección proactiva de amenazas.</p>
+  <p>Además de explorar Hunter, he examinado varios enfoques para la búsqueda de malware dentro de la consola de gestión. Esto incluye la capacidad de modificar libremente los módulos dentro del registro, lo que permite una adaptación más precisa a las necesidades específicas de la red y del entorno de amenazas.</p>
+  <p>Por último, he utilizado la consulta EventType "File Creation" para identificar rápidamente archivos potencialmente maliciosos. Es importante tener en cuenta que los archivos del Explorador pueden representar una fuente de problemas en los endpoints, por lo que se recomienda una evaluación cuidadosa de su inclusión en las investigaciones de amenazas.</p>
+</details>
+
+<details>
+  <summary><strong>⁠⁠Day 33: Práctica Threat Hunting con SentinelOne</strong></summary>
+  <p>El día de hoy he realizado el laboratorio de S1 University para el threat hunting con SentinelOne con el propósito de practicar la identificación y mitigación de amenazas, en este caso, un troyano de acceso remoto (RAT) en un entorno Linux mediante el uso de la Consola de Gestión de SentinelOne.</p>
+  <p><strong>Pasos Realizados durante la práctica:</strong></p>
+  <ul>
+    <li>Preparación para la Infección:</li>
+    <ul>
+      <li><code>sudo nc -l -p 666</code>: Puerto de escucha con Netcat.</li>
+      <li><code>sudo /home/forensics/Desktop/yoyobins.sh</code>: Ejecución del malware.</li>
+      <li><code>sudo netstat -peanut | grep 172.245.7.14:666</code>: Lista de conexiones de red activas al servidor C2.</li>
+    </ul>
+    <li>Investigación en la Consola de SentinelOne:</li>
+    <ul>
+      <li>Uso de consultas de Deep Visibility para identificar la actividad maliciosa y asociar un Storyline Id con la cadena de infección.</li>
+      <li>Ejemplos de consultas utilizadas:</li>
+      <ul>
+        <li><code>NetConnOutCount > "5"</code></li>
+        <li><code>DstIP RegExp "..."</code></li>
+        <li><code>EndpointName ContainsCIS "" AND ChildProcCount > "50"</code></li>
+        <li><code>DstIP RegExp "\\b(?!10\\.|192\\.168\\.|172\\.(?:1[6-9]|2[0-9]|3[01])\\.)(?:25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])(?:\\.(?:25[0-5]|2[0-4][0-9]|[01]?[0-9]?[0-9])){3}\\b" AND SrcProcSignedStatus = "unsigned"</code></li>
+      </ul>
+      <li>Identificación del Storyline Id del proceso malicioso y marcado como amenaza.</li>
+    </ul>
+    <li>Análisis Detallado:</li>
+    <ul>
+      <li>Inspección del árbol de procesos para comprender el comportamiento del malware.</li>
+    </ul>
+    <li>Mitigación de Amenazas:</li>
+    <ul>
+      <li>Ejecución de acciones de mitigación seleccionando "QUARANTINE" y marcando las amenazas como resueltas y verdaderas positivas.</li>
+      <li>Verificación de la cuarentena y mitigación de los archivos maliciosos.</li>
+    </ul>
+  </ul>
+</details>
+
