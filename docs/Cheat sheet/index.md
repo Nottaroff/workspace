@@ -44,7 +44,7 @@ Es una herramienta de escaneo de puertos y análisis de redes de código abierto
 `nmap -n -sn --reason --min-rate 2000 10.0.0.0/24 -oN hostDiscovery`
 
 ### Escaneo de Puertos:
-`nmap -np- -Pn --min-rate 5000 -v 10.0.0.0 -oN tcpPort -`
+`nmap -np- -Pn --min-rate 5000 -v 10.0.0.0 -oN tcpPort`
 
 ### Escaneo en dDtalle de un puerto:
 

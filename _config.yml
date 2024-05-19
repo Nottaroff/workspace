@@ -42,3 +42,8 @@ callouts:
     color: yellow
     opacity: 0.2
 
+  intro:
+    title: Introduction
+    color: purple
+    opacity: 0.2
+
