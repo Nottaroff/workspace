@@ -1,5 +1,5 @@
 ---
-title: Exfiltración a través de FTP
+title: Exfiltración a través de FTP 📡
 layout: default
 has_toc: false
 nav_order: 1
