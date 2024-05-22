@@ -10,7 +10,7 @@ parent: Hunting an APT 👺
 
 
 {: .intro }
->Es posible mantener la persistencia una vez que el adversario entre en nuestro sistema mediante la creacion cuentas de usuario.
+>Un adversario puede mantener la persistencia en un sistema mediante la creación de cuentas de usuario.
 
 <body>
     <div style="display: flex; align-items: center;">
