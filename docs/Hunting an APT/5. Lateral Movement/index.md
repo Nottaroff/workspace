@@ -14,11 +14,11 @@ parent: Hunting an APT 👺
 
 Un adversario puede usar WMI para interactuar con sistemas locales y remotos, y usarlo como un medio para realizar muchas funciones tácticas, como recopilar información para el Descubrimiento y la Ejecución remota de archivos como parte del Movimiento Lateral.
 
-https://attack.mitre.org/techniques/T1047/
+[https://attack.mitre.org/techniques/T1047/](https://attack.mitre.org/techniques/T1047/)
 
 Para comprender mejor el movimiento lateral,consultaremos la guia de:  *Detecting Lateral Movement through Tracking Event Logs*:
 
-https://www.jpcert.or.jp/english/pub/sr/20170612ac-ir_research_en.pdf. 
+[https://www.jpcert.or.jp/english/pub/sr/20170612ac-ir_research_en.pdf](https://www.jpcert.or.jp/english/pub/sr/20170612ac-ir_research_en.pdf)
 
 Utilizaremos esto como punto de partida en Splunk. Basado en los resultados de la búsqueda, los eventos de WMI están asociados con un host interno.
 
