@@ -46,8 +46,7 @@ El tipo de mensaje de estos eventos son **`QUERY`** y **`RESPONSE`**. Cuando bus
 
 Podemos observar en el campoquery subdominios extraños que son parte de las consultas del dominio hildegardsfarm[.]com. Esto podría ser un indicio de exfiltración de datos o actividad maliciosa.
 
-<a href="https://i.postimg.cc/2jQw45sm/DNSAPT4.png"><img src="https://i.postimg.cc/2jQw45sm/DNSAPT4.png" style="width:200%; height:200%;" /></a>
-
+![DNSAPT4.png](https://i.postimg.cc/2jQw45sm/DNSAPT4.png)
 
 ### URL Toolbox
 
