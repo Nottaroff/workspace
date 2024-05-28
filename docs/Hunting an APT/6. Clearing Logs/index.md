@@ -1,12 +1,12 @@
 ---
-title:  Clearing Logs
+title:  Clearing Logs 🖋️
 layout: default
 has_toc: false
 nav_order: 7
 parent: Hunting an APT 👺
 ---
 
-# Hunting an APT - **Lateral Movement**
+# Hunting an APT - **Clearing Logs**
 
 
 {: .intro }
