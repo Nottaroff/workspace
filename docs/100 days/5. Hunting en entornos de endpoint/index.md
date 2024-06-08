@@ -1,5 +1,5 @@
 ---
-title: 5. Hunting en entornos de endpoint
+title: 5. Hunting en entornos de endpoint 🖥️
 layout: default
 has_toc: false
 nav_order: 7

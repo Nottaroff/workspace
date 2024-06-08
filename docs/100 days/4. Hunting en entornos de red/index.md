@@ -1,5 +1,5 @@
 ---
-title: 4. Hunting en entornos de red
+title: 4. Hunting en entornos de red 🛜
 layout: default
 has_toc: false
 nav_order: 5
