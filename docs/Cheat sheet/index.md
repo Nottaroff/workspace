@@ -9,10 +9,18 @@ has_children: true
 # Cheat Sheets Recopilations
 
 ---
+¡Claro! Aquí tienes una pequeña descripción para cada apartado que puedes agregar a tu página web:
+
+---
+
+# Cheat Sheets Recopilations
+
+---
 ## Índice 📑
 
-- [1. Pentesting](https://nottaroff.github.io/workspace/docs/Hunting%20an%20APT/1.%20Exfiltraci%C3%B3n%20a%20trav%C3%A9s%20de%20FTP/) 
+- [1. Pentesting 📕](https://nottaroff.github.io/workspace/docs/Cheat%20sheet/Pentesting/)
+    - Ropilación de comandos para realizar pruebas de penetración.
 
-- [2. Threat Hunting(https://nottaroff.github.io/workspace/docs/Cheat%20sheet 
-
+- [2. Threat Hunting 🔎](https://nottaroff.github.io/workspace/docs/Cheat%20sheet/Threat%20Hunting/)
+  - Recursos útiles para la caza de amenazas en endpoints. 
 ---
