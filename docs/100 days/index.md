@@ -13,11 +13,6 @@ has_children: true
 En ese apartado voy a presentar mi reto de 100 días aprendiendo Threat Hunting. 
 El principal objetivo es aprender sobre un tema. Dedicando a realizar el reto mínimo durante 1 hora diaría durante los próximos 100 dias. 
 
-
-{: .work}
->*Se está realizando el reto actualmente. Para ver el progreso día a día visita el apartado de [Registro](https://nottaroff.github.io/workspace/docs/100%20days/0.%20registro/) .*
-
-
 ## Índice  📑
 ---
 **1. Introducción al Threat Hunting**🎬
