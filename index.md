@@ -12,9 +12,11 @@ nav_order: 1
 ## **¡Hola! Soy Noттaroff!  ~ Blue Teamer y Analista de SOC 🛡️** 
 
 
-
-{: .main}
+¡
+{: .detail}
 > Te doy la bienvenida a mi espacio dedicado al mundo de la ciberseguridad. Aquí encontrarás mi recopilación de apuntes, documentos y proyectos personales. 
+
+
 
 ---
 <div style="font-size: 36px; font-weight: bold; text-align: center;">

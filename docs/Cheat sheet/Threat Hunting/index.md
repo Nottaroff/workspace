@@ -8,8 +8,6 @@ parent:  Cheat Docs 🔰
 
 # Threat Hunting 🔎
 
-**Guía sobre las herramientas básicas necesarias para el threat hunting.**
-
 ## Win Events 📅
 
 ### Obtener Información del Evento ID 1
