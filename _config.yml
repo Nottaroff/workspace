@@ -47,3 +47,10 @@ callouts:
     color: purple
     opacity: 0.2
 
+  main:
+    color: blue
+    opacity: 0.2
+
+  grey:
+    color: grey-lt
+    opacity: 0.2
