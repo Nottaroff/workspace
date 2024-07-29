@@ -9,15 +9,15 @@ nav_order: 1
 
 
 
-¡Hola! Soy Noттaroff y te doy la bienvenida a mi espacio dedicado al mundo de la ciberseguridad. Aquí encontrarás mi recopilación de apuntes, documentos y proyectos personales. 
+¡Hola! Soy Noттaroff!  ~ Blue Teamer y Analista de SOC
+
+Te doy la bienvenida a mi espacio dedicado al mundo de la ciberseguridad. 
+Aquí encontrarás mi recopilación de apuntes, documentos y proyectos personales. 
 
 ---
 
-**¿Qué encontrarás aquí?**
+**Topicos**
 
-- Artículos y apuntes sobre conceptos clave de ciberseguridad.
-- Proyectos prácticos que he desarrollado y compartido.
-- Experiencias personales y documentación.
 
 ---
 

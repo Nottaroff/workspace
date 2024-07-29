@@ -7,14 +7,6 @@ has_children: true
 ---
 
 # Cheat Sheets Recopilations
-
----
-¡Claro! Aquí tienes una pequeña descripción para cada apartado que puedes agregar a tu página web:
-
----
-
-# Cheat Sheets Recopilations
-
 ---
 ## Índice 📑
 
