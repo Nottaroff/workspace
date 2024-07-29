@@ -15,4 +15,5 @@ has_children: true
 
 - [2. Threat Hunting 🔎](https://nottaroff.github.io/workspace/docs/Cheat%20sheet/Threat%20Hunting/)
   - Recursos útiles para la caza de amenazas en endpoints. 
+  
 ---
