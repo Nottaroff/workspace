@@ -10,8 +10,8 @@ has_children: true
 
 ## Introducción 
 
-En ese apartado voy a presentar mi reto de 100 días aprendiendo Threat Hunting. 
-El principal objetivo es aprender sobre un tema. Dedicando a realizar el reto mínimo durante 1 hora diaría durante los próximos 100 dias. 
+{: .detail}
+>  En ese apartado he recopilado la infromación importante del reto  de 100 días aprendiendo Threat Hunting.  
 
 ## Índice  📑
 ---
