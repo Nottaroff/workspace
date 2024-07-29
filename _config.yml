@@ -48,9 +48,11 @@ callouts:
     opacity: 0.2
 
   main:
+    title: 
     color: blue
     opacity: 0.2
 
   grey:
+    title: 
     color: grey-lt
     opacity: 0.2
