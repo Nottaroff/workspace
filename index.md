@@ -51,6 +51,18 @@ Tópicos
 > En este apartado se recopila la parte práctica de la realización de una caza de amenazas de una APT y sus diferentes TTP's.
 
 ---
+<div style="font-size: 36px; font-weight: bold; text-align: center;">
+Tools
+</div>
+
+### [⚙️ URL Cleaner 🧹](https://github.com/Nottaroff/urlcleaner)
+
+{: .grey}
+> URL Cleaner es una aplicación Python para limpiar y formatear URLs. La aplicación permite introducir una lista de URLs y proporciona opciones para ajustar el formato de salida, como añadir el esquema http(s):// y el prefijo www.
+
+
+
+
 
 <div style="text-align: center; font-weight: bold;">
 
