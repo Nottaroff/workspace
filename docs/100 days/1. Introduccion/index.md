@@ -11,12 +11,12 @@ parent: 100 days challenge 🗻
 ---
 ## Índice 
 
-- [1.1 Introducción](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccio/#11-introducción) 
-- [1.2 Tipos de Threat Hunting](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccio/#12-tipos-de-threat-hunting)
-- [1.3 Metodologías](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccio/#13-metodologias)
-- [1.4 Importancia del Threat Hunting](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccio#14-importancia-del-threat-hunting)
-- [1.5 Etapas](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccio/#14-etapas)
-- [1.6 Glosario](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccio/#15-glosario)
+- [1.1 Introducción](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccion/#11-introducci%C3%B3n) 
+- [1.2 Tipos de Threat Hunting](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccion/#12-tipos-de-threat-hunting)
+- [1.3 Metodologías](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccion/#13-metodologias)
+- [1.4 Importancia del Threat Hunting](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccion/#14-importancia-del-threat-hunting)
+- [1.5 Etapas](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccion/#15-etapas)
+- [1.6 Glosario](https://nottaroff.github.io/workspace/docs/100%20days/1.%20Introduccion/#16-glosario)
 
 ---
 
@@ -33,7 +33,7 @@ Generalmente, las organizaciones comienzan a desarollar el puesto  de threat hun
 El threat hunting retroalimenta las herramientas de Incident response, proporcionando información valiosa que puede utilizarse para mejorar y ajustar las herramientas y procesos de incident response, fortaleciendo la capacidad de una organización para detectar, responder y mitigar amenazas cibernéticas.  Se estima que los sistemas de detección de amenazas de seguridad, SOC (Centro de Operaciones de Seguridad) de nivel 1 y 2, pueden detectar el 80% de las amenazas en promedio, pero el 20% restante necesita especial atención y una estrategia proactiva para identificarlas lo antes posible.
 
 
-![intro.png](https://i.postimg.cc/ZqNSShrg/intro.png)]
+![intro.png](https://i.postimg.cc/ZqNSShrg/intro.png)
 
 
 Algunos de los elementos importantes en la práctica de la caza de amenazas incluyen identificar anomalías, luego utilizar herramientas y técnicas para analizar anomalías como una amenaza y, finalmente, encontrar formas de remediar esas amenazas antes de que el atacante las aproveche. La caza de amenazas cibernéticas es una actividad impulsada por datos y depende de la disponibilidad de datos generados a partir de herramientas de monitoreo de puntos finales. Los cazadores de amenazas revisan estos registros de eventos/datos para identificar cualquier patrón de ataque de seguridad nuevo basado en sus modelos de caza redactados.
@@ -54,7 +54,7 @@ En  función de un desencadenante oun indicador de compromiso (IoC).
 >**Situacional**                            
 Se diseñan hipotesis basadas en situaciones concretas, como vulnerabilidades detectadas durante la evaluación de riesgos de una red. Luego, se emplean pistas centradas en entidades utilizando datos de ataques recopilados de múltiples fuentes, que incluyen las TTP más recientes. De esta manera, un cazador de amenazas puede buscar comportamientos específicos dentro del entorno de prueba.
     
-## 1.3 Metodologias
+## 1.3 Metodologías
     
 **Metodologias del Threat Hunting**
     
@@ -85,9 +85,9 @@ La importancia del  threat hunting consiste en:
 
 Actualmente, el Threat Hunting se ha convertido en una herramienta fundamental en el arsenal de cualquier equipo ciberseguridad. Su evolución ha sido impulsada por la necesidad de combatir amenazas cada vez más sofisticadas, aprovechando tecnologías avanzadas y adoptando un enfoque proactivo basado en el comportamiento.
 
-![Threat-graphic.png](https://i.postimg.cc/W3Kf85Yv/Threat-graphic.png)]
+![Threat-graphic.png](https://i.postimg.cc/W3Kf85Yv/Threat-graphic.png)
 
-## 1.4 Etapas
+## 1.5 Etapas
 
 Podemos estructurar el threat hunting mediante una serie de fases durante su desarrollo. Estas etapas nos ayudan a establecer una estructura clara y efectiva para llevar a cabo la actividad de caza de amenazas.
 
@@ -103,7 +103,7 @@ Podemos estructurar el threat hunting mediante una serie de fases durante su des
 **Análisis automatizado:** Implica el empleo de herramientas o algoritmos automatizados para recolectar, procesar y analizar los datos obtenidos en las etapas anteriores. Se pueden aplicar distintas técnicas, como análisis estadístico, detección de anomalías, o incluso inteligencia artificial para optimizar el tiempo, recursos y eficacia del threat hunting, mejorando así la capacidad de detección y análisis de amenazas.
 {: .detail }
 
-## 1.5 **Glosario**
+## 1.6 **Glosario**
 
 **IoA** (Indicador de Ataque):  Señales que pueden indicar la presencia de un ataque o actividad maliciosa en un sistema o red.
 

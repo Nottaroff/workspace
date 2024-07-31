@@ -18,7 +18,7 @@ parent: 100 days challenge 🗻
 
 ---
 
-## 5.1 Técnicas de Ocultación de Malware 🥷🏻
+## 5.1 Técnicas de Ocultación de Malware
 
 ### 5.1.1 Técnicas de evasión signature-based
 
